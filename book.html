@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=375px, initial-scale=1.0">
+<title>Minecraft 文档中心</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#0066FF',
+secondary: '#6B7280'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+</head>
+<body class="bg-white flex text-gray-800">
+<aside class="fixed top-0 left-0 bottom-0 w-64 bg-gray-50 border-r border-gray-200 overflow-y-auto transition-transform duration-300 -translate-x-full" id="sidebar">
+<div class="p-4 border-b border-gray-200">
+<img src="https://static.readdy.ai/image/434865fa4b532bf1127dd54e2b5979e2/90adf21611143084f5f27221922b1bf4.jpeg" alt="logo" class="h-8">
+</div>
+<div class="p-4">
+<nav class="space-y-1 text-gray-600">
+<div class="mb-4">
+<button class="w-full flex items-center justify-between text-sm text-gray-600 mb-2 hover:text-primary p-2 rounded transition-colors duration-200 hover:bg-gray-50" onclick="toggleMenu(this)">
+<div class="flex items-center">
+<i class="ri-gamepad-line mr-2"></i>
+<span>游戏指南</span>
+</div>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="pl-6 space-y-1 hidden">
+<a href="#" class="block py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded px-2 transition-colors duration-200">新手教程</a>
+<a href="#" class="block py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded px-2 transition-colors duration-200">生存模式</a>
+<a href="#" class="block py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded px-2 transition-colors duration-200">创造模式</a>
+</div>
+</div>
+<div class="mb-4">
+<button class="w-full flex items-center justify-between text-sm text-gray-600 mb-2 hover:text-primary p-2 rounded transition-colors duration-200 hover:bg-gray-50" onclick="toggleMenu(this)">
+<div class="flex items-center">
+<i class="ri-sword-line mr-2"></i>
+<span>物品图鉴</span>
+</div>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="pl-6 space-y-1 hidden">
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">工具与武器</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">方块与材料</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">食物与药水</a>
+</div>
+</div>
+<div class="mb-4">
+<button class="w-full flex items-center justify-between text-sm text-gray-600 mb-2 hover:text-primary p-2 rounded transition-colors duration-200 hover:bg-gray-50" onclick="toggleMenu(this)">
+<div class="flex items-center">
+<i class="ri-map-2-line mr-2"></i>
+<span>世界探索</span>
+</div>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="pl-6 space-y-1 hidden">
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">生物群系</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">地牢与遗迹</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">村庄与交易</a>
+</div>
+</div>
+<div class="mb-4">
+<button class="w-full flex items-center justify-between text-sm text-gray-600 mb-2 hover:text-primary p-2 rounded transition-colors duration-200 hover:bg-gray-50" onclick="toggleMenu(this)">
+<div class="flex items-center">
+<i class="ri-group-line mr-2"></i>
+<span>多人游戏</span>
+</div>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="pl-6 space-y-1 hidden">
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">服务器列表</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">联机教程</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">社区规则</a>
+</div>
+</div>
+</nav>
+</div>
+</aside>
+<main class="ml-0 flex-1 min-h-screen transition-all duration-300" id="main">
+<nav class="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50 transition-all duration-300" id="topNav">
+<div class="flex items-center px-4 h-14">
+<button class="w-8 h-8 flex items-center justify-center" onclick="toggleSidebar()">
+<i class="ri-menu-unfold-line text-xl" id="sidebarIcon"></i>
+</button>
+</div>
+</nav>
+<div class="pt-20 pb-16 px-8">
+<section class="mb-8">
+<h2 class="text-lg font-medium mb-4">文档分类</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white p-4 rounded shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer" onclick="window.location.href='#'">
+<div class="w-12 h-12 mb-3 flex items-center justify-center">
+<img src="https://public.readdy.ai/ai/img_res/f2d71e470b04b55d8876406de880af19.jpg" class="w-full h-full object-cover" alt="游戏指南">
+</div>
+<h3 class="font-medium mb-1">游戏指南</h3>
+<p class="text-sm text-gray-500 mb-2">基础玩法与生存技巧</p>
+<div class="flex justify-between items-center">
+<span class="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full">328 篇</span>
+<i class="ri-arrow-right-line text-gray-400"></i>
+</div>
+</div>
+<div class="bg-white p-4 rounded shadow-sm border border-gray-200">
+<div class="w-12 h-12 mb-3 flex items-center justify-center">
+<img src="https://public.readdy.ai/ai/img_res/125ae3368cf64d1ff229da85ed78fe54.jpg" class="w-full h-full object-cover" alt="物品图鉴">
+</div>
+<h3 class="font-medium mb-1">物品图鉴</h3>
+<p class="text-sm text-gray-500 mb-2">游戏物品与合成配方</p>
+<span class="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full">456 篇</span>
+</div>
+<div class="bg-white p-4 rounded shadow-sm border border-gray-200">
+<div class="w-12 h-12 mb-3 flex items-center justify-center">
+<img src="https://public.readdy.ai/ai/img_res/b1c627d1d0da6653ac29e2cdb29846d2.jpg" class="w-full h-full object-cover" alt="世界探索">
+</div>
+<h3 class="font-medium mb-1">世界探索</h3>
+<p class="text-sm text-gray-500 mb-2">地形生态与冒险探索</p>
+<span class="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full">284 篇</span>
+</div>
+<div class="bg-white p-4 rounded shadow-sm border border-gray-200">
+<div class="w-12 h-12 mb-3 flex items-center justify-center">
+<img src="https://public.readdy.ai/ai/img_res/f94481d945b0368d9580ac9ca78a7239.jpg" class="w-full h-full object-cover" alt="多人游戏">
+</div>
+<h3 class="font-medium mb-1">多人游戏</h3>
+<p class="text-sm text-gray-500 mb-2">服务器与联机玩法</p>
+<span class="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full">196 篇</span>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-lg font-medium mb-4">关于 Minecraft</h2>
+<div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+<div class="flex items-center justify-center mb-6">
+<img src="https://public.readdy.ai/ai/img_res/f2741c04cb5be39a458faac74686d315.jpg"
+class="w-full h-48 object-cover rounded-lg" alt="Minecraft World">
+</div>
+<p class="text-gray-600 leading-relaxed mb-4">
+Minecraft
+</p>
+<p class="text-gray-600 leading-relaxed mb-4">
+游戏提供多种游戏模式：在生存模式中，玩家需要收集资源、管理生命值和饥饿度；在创造模式中，玩家可以自由地使用无限资源进行创作；而冒险模式则专注于探索和完成任务。
+</p>
+<div class="grid grid-cols-2 gap-4 mt-6">
+<div class="bg-blue-50 p-4 rounded-lg">
+<h3 class="font-medium text-blue-700 mb-2">游戏版本</h3>
+<p class="text-sm text-gray-600">最新版本：1.21</p>
+</div>
+<div class="bg-blue-50 p-4 rounded-lg">
+<h3 class="font-medium text-blue-700 mb-2">全球玩家</h3>
+<p class="text-sm text-gray-600">超过 2.5 亿</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<div class="fixed bottom-4 right-4 z-50">
+<button class="w-10 h-10 bg-primary text-white rounded-full shadow-lg flex items-center justify-center" onclick="scrollToTop()">
+<i class="ri-arrow-up-line"></i>
+</button>
+</div>
+<script>
+function toggleSidebar() {
+const sidebar = document.getElementById('sidebar');
+const main = document.getElementById('main');
+const topNav = document.getElementById('topNav');
+const sidebarIcon = document.getElementById('sidebarIcon');
+if(sidebar.style.transform === 'translateX(-100%)') {
+sidebar.style.transform = 'translateX(0)';
+main.style.marginLeft = '16rem';
+topNav.style.left = '16rem';
+sidebarIcon.className = 'ri-menu-fold-line text-xl';
+} else {
+sidebar.style.transform = 'translateX(-100%)';
+main.style.marginLeft = '0';
+topNav.style.left = '0';
+sidebarIcon.className = 'ri-menu-unfold-line text-xl';
+}
+}
+function toggleMenu(button) {
+const content = button.nextElementSibling;
+const arrow = button.querySelector('.ri-arrow-down-s-line');
+const isHidden = content.classList.contains('hidden');
+
+// 先关闭所有其他展开的菜单
+document.querySelectorAll('nav .pl-6').forEach(menu => {
+    if(menu !== content && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        menu.previousElementSibling.querySelector('.ri-arrow-down-s-line').style.transform = '';
+    }
+});
+
+// 切换当前菜单
+content.classList.toggle('hidden');
+arrow.style.transform = isHidden ? 'rotate(180deg)' : '';
+
+// 添加选中状态样式
+const menuButton = button.querySelector('.flex.items-center');
+document.querySelectorAll('nav button .flex.items-center').forEach(btn => {
+    btn.classList.remove('text-primary');
+});
+if(isHidden) {
+    menuButton.classList.add('text-primary');
+}
+}
+function scrollToTop() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleVersions() {
+const versions = ['v3.0.0', 'v2.9.0', 'v2.8.0'];
+showOptions('选择版本', versions);
+}
+function toggleLanguages() {
+const languages = ['简体中文', 'English', '日本語'];
+showOptions('选择语言', languages);
+}
+function showOptions(title, options) {
+const modal = document.createElement('div');
+modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
+modal.innerHTML = `
+<div class="bg-white w-80 rounded-lg border border-gray-200 shadow-lg">
+<div class="p-4 border-b border-gray-700">
+<h3 class="font-medium">${title}</h3>
+</div>
+<div class="p-4">
+${options.map(option => `
+<button class="w-full text-left px-4 py-3 hover:bg-gray-100 rounded text-gray-600">
+${option}
+</button>
+`).join('')}
+</div>
+</div>
+`;
+document.body.appendChild(modal);
+modal.addEventListener('click', (e) => {
+if (e.target === modal) {
+modal.remove();
+}
+});
+}
+</script>
+</body>
+</html>

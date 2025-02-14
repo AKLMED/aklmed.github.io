@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>源夕之境 - 我的世界服务器</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.btn-hover {
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.btn-hover:active {
+transform: translateY(0);
+box-shadow: none;
+}
+.fade-up {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+.fade-up.visible {
+opacity: 1;
+transform: translateY(0);
+}
+</style>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#0EA5E9',secondary:'#10B981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+</head>
+<body class="bg-[#F8FAFC] min-h-screen flex flex-col items-center">
+<div class="w-[375px] min-h-screen relative pb-20">
+<div class="pt-16 px-6 flex flex-col items-center">
+<div class="w-32 h-32 mb-12">
+<img src="https://static.readdy.ai/image/434865fa4b532bf1127dd54e2b5979e2/90adf21611143084f5f27221922b1bf4.jpeg"
+class="w-full h-full object-contain" alt="Logo">
+</div>
+<h1 class="text-primary text-4xl font-bold mb-4 font-['Pacifico']">源夕之境</h1>
+<h2 class="text-gray-800 text-2xl font-semibold text-center mb-2">我的世界原创生存服务器</h2>
+<p class="text-gray-600 text-center mb-12">探索、建造、冒险，尽在源夕之境</p>
+<div class="w-full mb-12 fade-up">
+<div class="w-full overflow-x-auto mb-8">
+<div class="flex gap-4 p-4 min-w-max">
+<img src="https://public.readdy.ai/ai/img_res/a5e2021781911ecab55c190a96126054.jpg"
+class="w-60 h-40 object-cover rounded-lg shadow-sm" alt="Server Preview">
+<img src="https://public.readdy.ai/ai/img_res/cca68cd186de5c566f63e1e7eef88b7b.jpg"
+class="w-60 h-40 object-cover rounded-lg shadow-sm" alt="Server Preview">
+<img src="https://public.readdy.ai/ai/img_res/7b8cf6fa6e8aa22df0916fa6abba661f.jpg"
+class="w-60 h-40 object-cover rounded-lg shadow-sm" alt="Server Preview">
+<img src="https://public.readdy.ai/ai/img_res/f6b712d2072c99101d435a4fc6ef3394.jpg"class="w-60 h-40 object-cover rounded-lg shadow-sm" alt="Server Preview">
+<img src="https://public.readdy.ai/ai/img_res/793dc3da17bca392e5e905684e79bc6a.jpg"
+class="w-60 h-40 object-cover rounded-lg shadow-sm" alt="Server Preview">
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 w-full">
+<button class="bg-primary text-white py-4 !rounded-button btn-hover flex items-center justify-center shadow-sm">
+<i class="ri-qq-fill mr-2 text-lg"></i>
+<span class="text-base">加入QQ群</span>
+</button>
+<button class="bg-secondary text-white py-4 !rounded-button btn-hover flex items-center justify-center shadow-sm">
+<i class="ri-file-text-line mr-2 text-lg"></i>
+<span class="text-base">游玩文档</span>
+</button>
+</div>
+</div>
+<div class="w-full bg-white shadow-md rounded-lg p-6 mb-6 fade-up">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+<i class="ri-sword-line text-primary text-xl"></i>
+</div>
+<h3 class="text-gray-800 text-lg font-semibold">原创玩法</h3>
+</div>
+<p class="text-gray-600">独特的游戏机制与丰富的探索内容</p>
+</div>
+<div class="w-full bg-white shadow-md rounded-lg p-6 mb-6 fade-up">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+<i class="ri-team-line text-primary text-xl"></i>
+</div>
+<h3 class="text-gray-800 text-lg font-semibold">友好社区</h3>
+</div>
+<p class="text-gray-600">活跃的玩家群体，温馨和谐的游戏氛围</p>
+</div>
+<div class="w-full bg-white shadow-md rounded-lg p-6 fade-up">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+<i class="ri-gamepad-line text-primary text-xl"></i>
+</div>
+<h3 class="text-gray-800 text-lg font-semibold">稳定运营</h3>
+</div>
+<p class="text-gray-600">24/7 不间断运行，专业的服务器维护</p>
+</div>
+<div class="w-full bg-gradient-to-br from-primary/10 to-secondary/10 shadow-md rounded-lg p-6 mt-6 fade-up">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+<i class="ri-rocket-line text-primary text-xl"></i>
+</div>
+<h3 class="text-gray-800 text-lg font-semibold">新服即将推出</h3>
+</div>
+<span class="text-primary text-sm font-medium px-3 py-1 bg-primary/10 rounded-full">2025.03.01</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<i class="ri-checkbox-circle-line text-secondary"></i>
+<p class="text-gray-600">全新主题：魔法与科技的融合世界</p>
+</div>
+<div class="flex items-center gap-2">
+<i class="ri-checkbox-circle-line text-secondary"></i>
+<p class="text-gray-600">独创玩法：自定义魔法系统</p>
+</div>
+<div class="flex items-center gap-2">
+<i class="ri-checkbox-circle-line text-secondary"></i>
+<p class="text-gray-600">特别奖励：首周上线玩家专属礼包</p>
+</div>
+</div>
+<button class="w-full mt-4 bg-primary/10 text-primary py-2 !rounded-button btn-hover flex items-center justify-center">
+<i class="ri-qq-line mr-2"></i>
+<span>加入 QQ 群获取最新消息</span>
+</button>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 w-[375px] py-4 text-center text-gray-500 text-sm bg-[#F8FAFC]">
+© 2022-2025 源夕之境
+</div>
+<script>
+document.querySelectorAll('button').forEach(button => {
+button.addEventListener('click', function() {
+const ripple = document.createElement('div');
+ripple.classList.add('ripple');
+this.appendChild(ripple);
+setTimeout(() => ripple.remove(), 1000);
+});
+});
+const fadeElements = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, {
+threshold: 0.1
+});
+fadeElements.forEach(element => {
+observer.observe(element);
+});
+// 图片滚动相关
+const imageScroll = document.getElementById('imageScroll');
+const imageContainer = imageScroll.querySelector('div');
+const images = imageContainer.querySelectorAll('img');
+const dotsContainer = document.querySelector('.flex.gap-1\\.5');
+// 创建进度点
+images.forEach((_, index) => {
+const dot = document.createElement('div');
+dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${index === 0 ? 'bg-primary' : 'bg-gray-300'}`;
+dotsContainer.appendChild(dot);
+});
+const dots = dotsContainer.querySelectorAll('div');
+let currentIndex = 0;
+const imageWidth = 256; // 图片宽度 + gap
+function updateDots(index) {
+dots.forEach((dot, i) => {
+dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${i === index ? 'bg-primary' : 'bg-gray-300'}`;
+});
+}
+function scrollToNext() {
+currentIndex = (currentIndex + 1) % images.length;
+imageScroll.scrollTo({
+left: currentIndex * imageWidth,
+behavior: 'smooth'
+});
+updateDots(currentIndex);
+}
+// 自动滚动
+let scrollInterval = setInterval(scrollToNext, 3000);
+// 手动滚动时重置定时器
+imageScroll.addEventListener('scroll', () => {
+clearInterval(scrollInterval);
+const scrollPosition = imageScroll.scrollLeft;
+currentIndex = Math.round(scrollPosition / imageWidth);
+updateDots(currentIndex);
+scrollInterval = setInterval(scrollToNext, 3000);
+});
+// 触摸时暂停自动滚动
+imageScroll.addEventListener('touchstart', () => {
+clearInterval(scrollInterval);
+});
+// 触摸结束后恢复自动滚动
+imageScroll.addEventListener('touchend', () => {
+scrollInterval = setInterval(scrollToNext, 3000);
+});
+</script>
+</body>
+</html>

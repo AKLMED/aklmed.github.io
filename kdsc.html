@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=375px, initial-scale=1.0">
+<title>源夕之境-空岛生存教程</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#0066FF',
+secondary: '#6B7280'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+</head>
+<body class="bg-white flex text-gray-800">
+<aside class="fixed top-0 left-0 bottom-0 w-64 bg-gray-50 border-r border-gray-200 overflow-y-auto transition-transform duration-300 -translate-x-full" id="sidebar">
+<div class="p-4 border-b border-gray-200">
+<a href=index.html>
+
+<img src="https://static.readdy.ai/image/434865fa4b532bf1127dd54e2b5979e2/90adf21611143084f5f27221922b1bf4.jpeg" alt="logo" class="h-8 rounded-lg">
+</a>
+</div>
+<div class="p-4">
+<nav class="space-y-1 text-gray-600">
+<div class="mb-4">
+<button class="w-full flex items-center justify-between text-sm text-gray-600 mb-2 hover:text-primary p-2 rounded transition-colors duration-200 hover:bg-gray-50" onclick="toggleMenu(this)">
+<div class="flex items-center">
+<i class="ri-gamepad-line mr-2"></i>
+<span>游戏指南</span>
+</div>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="pl-6 space-y-1">
+<a href="kdsc.html" class="block py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded px-2 transition-colors duration-200">空岛生存教程</a>
+<a href="#" class="block py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded px-2 transition-colors duration-200">内容暂定</a>
+<a href="#" class="block py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded px-2 transition-colors duration-200">内容暂定</a>
+</div>
+</div>
+<div class="mb-4">
+<button class="w-full flex items-center justify-between text-sm text-gray-600 mb-2 hover:text-primary p-2 rounded transition-colors duration-200 hover:bg-gray-50" onclick="toggleMenu(this)">
+<div class="flex items-center">
+<i class="ri-sword-line mr-2"></i>
+<span>图鉴</span>
+</div>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="pl-6 space-y-1 hidden">
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">工具与武器</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">方块材料</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">食物</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">防具</a>
+
+</div>
+</div>
+<div class="mb-4">
+<button class="w-full flex items-center justify-between text-sm text-gray-600 mb-2 hover:text-primary p-2 rounded transition-colors duration-200 hover:bg-gray-50" onclick="toggleMenu(this)">
+<div class="flex items-center">
+<i class="ri-map-2-line mr-2"></i>
+<span>地图一览</span>
+</div>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="pl-6 space-y-1 hidden">
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">晨岛</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">中心岛</a>
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">暂定</a>
+</div>
+</div>
+<div class="mb-4">
+<button class="w-full flex items-center justify-between text-sm text-gray-600 mb-2 hover:text-primary p-2 rounded transition-colors duration-200 hover:bg-gray-50" onclick="toggleMenu(this)">
+<div class="flex items-center">
+<i class="ri-group-line mr-2"></i>
+<span>联系我们</span>
+</div>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="pl-6 space-y-1 hidden">
+<a href="#" class="block py-1 text-sm text-gray-600 hover:text-primary">加入我们</a>
+</div>
+</div>
+</nav>
+</div>
+</aside>
+<main class="ml-0 flex-1 min-h-screen transition-all duration-300" id="main">
+<nav class="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50 transition-all duration-300" id="topNav">
+<div class="flex items-center px-4 h-14">
+<button class="w-8 h-8 flex items-center justify-center" onclick="toggleSidebar()">
+<i class="ri-menu-unfold-line text-xl" id="sidebarIcon"></i>
+</button>
+</div>
+</nav>
+<div class="pt-20 pb-16 px-8">
+<section class="mb-8">
+<h2 class="text-lg font-medium mb-4">快速预览</h2>
+<p>测试测试</p>
+</section>
+</div>
+</main>
+<div class="fixed bottom-4 right-4 z-50">
+<button class="w-10 h-10 bg-primary text-white rounded-full shadow-lg flex items-center justify-center" onclick="scrollToTop()">
+<i class="ri-arrow-up-line"></i>
+</button>
+</div>
+<script>
+function toggleSidebar() {
+const sidebar = document.getElementById('sidebar');
+const main = document.getElementById('main');
+const topNav = document.getElementById('topNav');
+const sidebarIcon = document.getElementById('sidebarIcon');
+if(sidebar.style.transform === 'translateX(-100%)') {
+sidebar.style.transform = 'translateX(0)';
+main.style.marginLeft = '16rem';
+topNav.style.left = '16rem';
+sidebarIcon.className = 'ri-menu-fold-line text-xl';
+} else {
+sidebar.style.transform = 'translateX(-100%)';
+main.style.marginLeft = '0';
+topNav.style.left = '0';
+sidebarIcon.className = 'ri-menu-unfold-line text-xl';
+}
+}
+function toggleMenu(button) {
+const content = button.nextElementSibling;
+const arrow = button.querySelector('.ri-arrow-down-s-line');
+const isHidden = content.classList.contains('hidden');
+
+// 先关闭所有其他展开的菜单
+document.querySelectorAll('nav .pl-6').forEach(menu => {
+    if(menu !== content && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        menu.previousElementSibling.querySelector('.ri-arrow-down-s-line').style.transform = '';
+    }
+});
+
+// 切换当前菜单
+content.classList.toggle('hidden');
+arrow.style.transform = isHidden ? 'rotate(180deg)' : '';
+
+// 添加选中状态样式
+const menuButton = button.querySelector('.flex.items-center');
+document.querySelectorAll('nav button .flex.items-center').forEach(btn => {
+    btn.classList.remove('text-primary');
+});
+if(isHidden) {
+    menuButton.classList.add('text-primary');
+}
+}
+function scrollToTop() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleVersions() {
+const versions = ['v3.0.0', 'v2.9.0', 'v2.8.0'];
+showOptions('选择版本', versions);
+}
+function toggleLanguages() {
+const languages = ['简体中文', 'English', '日本語'];
+showOptions('选择语言', languages);
+}
+function showOptions(title, options) {
+const modal = document.createElement('div');
+modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
+modal.innerHTML = `
+<div class="bg-white w-80 rounded-lg border border-gray-200 shadow-lg">
+<div class="p-4 border-b border-gray-700">
+<h3 class="font-medium">${title}</h3>
+</div>
+<div class="p-4">
+${options.map(option => `
+<button class="w-full text-left px-4 py-3 hover:bg-gray-100 rounded text-gray-600">
+${option}
+</button>
+`).join('')}
+</div>
+</div>
+`;
+document.body.appendChild(modal);
+modal.addEventListener('click', (e) => {
+if (e.target === modal) {
+modal.remove();
+}
+});
+}
+</script>
+</body>
+</html>

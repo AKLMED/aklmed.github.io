@@ -188,12 +188,19 @@ class="w-full h-48 object-cover rounded-lg" alt="Minecraft World">
 </div>
 
 <script>
-  // 调用后端 API 获取服务器状态
-  fetch('http://localhost:5000/server-status')
+  // Minecraft 服务器 IP
+  const serverIP = "geyino.2m.pub";
+
+  // 调用 mcstatus.io 的 API 获取服务器状态
+  fetch(`https://api.mcstatus.io/v2/status/java/${serverIP}`)
     .then(response => response.json())
     .then(data => {
       const statusElement = document.getElementById('server-status');
-      statusElement.textContent = `在线人数: ${data.online_players}/${data.max_players}`;
+      if (data.online) {
+        statusElement.textContent = `在线人数: ${data.players.online}/${data.players.max}`;
+      } else {
+        statusElement.textContent = "服务器离线";
+      }
     })
     .catch(error => {
       console.error('获取服务器状态失败:', error);

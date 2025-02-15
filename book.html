@@ -181,10 +181,26 @@ class="w-full h-48 object-cover rounded-lg" alt="Minecraft World">
 <h3 class="font-medium text-blue-700 mb-2">游戏版本</h3>
 <p class="text-sm text-gray-600">1.19-1.20</p>
 </div>
+    
 <div class="bg-blue-50 p-4 rounded-lg">
-<h3 class="font-medium text-blue-700 mb-2">E</h3>
-<p class="text-sm text-gray-600">E</p>
+  <h3 class="font-medium text-blue-700 mb-2">Minecraft 服务器状态</h3>
+  <p class="text-sm text-gray-600" id="server-status">加载中...</p>
 </div>
+
+<script>
+  // 调用后端 API 获取服务器状态
+  fetch('http://localhost:5000/server-status')
+    .then(response => response.json())
+    .then(data => {
+      const statusElement = document.getElementById('server-status');
+      statusElement.textContent = `在线人数: ${data.online_players}/${data.max_players}`;
+    })
+    .catch(error => {
+      console.error('获取服务器状态失败:', error);
+      document.getElementById('server-status').textContent = '无法获取服务器状态';
+    });
+</script>
+    
 </div>
 </div>
 </section>

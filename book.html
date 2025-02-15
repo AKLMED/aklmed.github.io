@@ -40,13 +40,28 @@ DEFAULT: '8px',
 <body class="bg-white flex text-gray-800">
 <aside class="fixed top-0 left-0 bottom-0 w-64 bg-gray-50 border-r border-gray-200 overflow-y-auto transition-transform duration-300 -translate-x-full" id="sidebar">
 <div class="p-4 border-b border-gray-200">
+ <!-- 图标设置 -->
 <a href=index.html>
-
 <img src="https://static.readdy.ai/image/434865fa4b532bf1127dd54e2b5979e2/90adf21611143084f5f27221922b1bf4.jpeg" alt="logo" class="h-8 rounded-lg">
 </a>
 </div>
 <div class="p-4">
 <nav class="space-y-1 text-gray-600">
+
+<div class="mb-4">
+<button class="w-full flex items-center justify-between text-sm text-gray-600 mb-2 hover:text-primary p-2 rounded transition-colors duration-200 hover:bg-gray-50" onclick="toggleMenu(this)">
+<div class="flex items-center">
+<i class="ri-debug-start mr-2"></i>
+<span>开始</span>
+</div>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="pl-6 space-y-1 hidden">
+<a href="book.html" class="block py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded px-2 transition-colors duration-200">文档首页</a>
+</div>
+</div>
+
+ 
 <div class="mb-4">
 <button class="w-full flex items-center justify-between text-sm text-gray-600 mb-2 hover:text-primary p-2 rounded transition-colors duration-200 hover:bg-gray-50" onclick="toggleMenu(this)">
 <div class="flex items-center">

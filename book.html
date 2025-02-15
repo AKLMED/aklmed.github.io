@@ -123,12 +123,18 @@ DEFAULT: '8px',
 </aside>
 <main class="ml-0 flex-1 min-h-screen transition-all duration-300" id="main">
 <nav class="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50 transition-all duration-300" id="topNav">
-<div class="flex items-center px-4 h-14">
-<button class="w-8 h-8 flex items-center justify-center" onclick="toggleSidebar()">
-<i class="ri-menu-unfold-line text-xl" id="sidebarIcon"></i>
-</button>
-</div>
+
+<nav class="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50 transition-all duration-300" id="topNav">
+  <div class="flex items-center px-4 h-14">
+    <button 
+      class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-sm active:scale-95 focus:outline-none hover:bg-gray-50 transition-all duration-200" 
+      onclick="toggleSidebar()"
+    >
+      <i class="ri-menu-unfold-line text-xl" id="sidebarIcon"></i>
+    </button>
+  </div>
 </nav>
+ 
 <div class="pt-20 pb-16 px-8">
 <!--1 -->
 <section class="mb-8">

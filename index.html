@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>源夕之境 - 欢迎您</title>
+<title>源夕之境 - 首页</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -54,27 +54,55 @@ DEFAULT: '8px',
 <i class="ri-menu-line text-xl"></i>
 </button>
 </nav>
-<div id="menu" class="hidden container mx-auto px-4 py-4 bg-white/90 shadow-lg rounded-lg mt-2 absolute left-0 right-0 transform">
-<div class="space-y-4">
-<a href="#" class="block px-4 py-2 rounded-button hover:bg-gray-100 transition-colors text-gray-800">首页</a>
-<a href="#" class="block px-4 py-2 rounded-button hover:bg-gray-100 transition-colors text-gray-800">Mcmod</a>
-<a href="#" class="block px-4 py-2 rounded-button hover:bg-gray-100 transition-colors text-gray-800">MCBBS</a>
-<a href="book.html" class="block px-4 py-2 rounded-button hover:bg-gray-100 transition-colors text-gray-800">更多信息</a>
+<div id="menu" class="hidden container mx-auto px-4 py-4 bg-white/60 backdrop-blur-lg shadow-lg rounded-lg mt-2 absolute left-0 right-0 transform">
+<div class="space-y-2">
+<div class="menu-item">
+<button class="w-full flex items-center justify-between px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">
+<span>开始</span>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="submenu hidden pl-6 space-y-1 mt-1">
+<a href="#" class="block px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">首页</a>
+<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=zkSVgdt74EmdgnERkj-qT5GTxDp8pagv&authKey=UqkGY4VyunGJINsTdL85x2lpfZEFqUhVSAm%2FYIPI1P8FHkTiiIrB6vybcOjooBaw&noverify=0&group_code=682609884" class="block px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">加入QQ群</a>
+<a href="book.html" class="block px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">客户端下载</a>
+</div>
+</div>
+<div class="menu-item">
+<button class="w-full flex items-center justify-between px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">
+<span>友情链接</span>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="submenu hidden pl-6 space-y-1 mt-1">
+<a href="https://www.mcmod.cn" target="_blank" class="block px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">Mcmod网站</a>
+<a href="https://www.mcbbs.io" target="_blank" class="block px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">MCBBS网站</a>
+<a href="https://www.minebbs.com" target="_blank" class="block px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">Minebbs网站</a>
+</div>
+</div>
+<div class="menu-item">
+<button class="w-full flex items-center justify-between px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">
+<span>关于</span>
+<i class="ri-arrow-down-s-line transition-transform"></i>
+</button>
+<div class="submenu hidden pl-6 space-y-1 mt-1">
+<a href="book.html" class="block px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">游玩文档</a>
+<a href="book.html" class="block px-4 py-2 rounded-button hover:bg-gray-100/80 transition-colors text-gray-800">服务器历史</a>
+</div>
+</div>
 </div>
 </div>
 </header>
 <main class="container mx-auto px-4 pt-24 pb-16">
 <section class="text-center mb-16 opacity-0 transition-opacity duration-1000" data-animate>
 <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">源夕之境</h1>
-<p class="text-gray-600 text-lg mb-8">一个追求平衡与和谐的 Minecraft 服务器</p>
+<p class="text-gray-600 text-lg mb-8">一个追求平衡与和谐的 Minecraft 游戏世界</p>
 <div class="flex flex-wrap justify-center gap-4 mb-8">
-<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=iPSiFTReTRLD5g4ielREFTbn6RsSRmBX&authKey=wIhCW6o%2BsNcm6rSpht660BK%2BAHetNysF3usZ3BeJNPYkkq1gg70MKn55zTfgXI4w&noverify=0&group_code=682609884" class="btn-hover bg-primary text-white px-8 py-3 rounded-button whitespace-nowrap flex items-center">
+<a href="https://qm.qq.com/cgi-bin/qm/qr" class="btn-hover bg-primary text-white px-8 py-3 rounded-button whitespace-nowrap flex items-center">
 <i class="ri-qq-line mr-2"></i>
 加入QQ群
 </a>
-<a href="book.html" class="btn-hover border-2 border-primary text-primary px-8 py-3 rounded-button whitespace-nowrap flex items-center">
+<a href="/about" class="btn-hover border-2 border-primary text-primary px-8 py-3 rounded-button whitespace-nowrap flex items-center">
 <i class="ri-information-line mr-2"></i>
-更多信息
+了解更多
 </a>
 <a href="/sponsor" class="btn-hover border-2 border-primary text-primary px-8 py-3 rounded-button whitespace-nowrap flex items-center">
 <i class="ri-heart-3-line mr-2"></i>
@@ -125,40 +153,40 @@ DEFAULT: '8px',
 <p class="text-gray-600">独特的游戏模式，丰富的游戏内容，带来前所未有的游戏体验。</p>
 </div>
 </section>
-<section class="bg-gradient-to-br from-gray-50 via-white to-gray-50 rounded-lg shadow-sm p-8 mb-16 opacity-0 transition-opacity duration-1000" data-animate>
+<section class="bg-gradient-to-br from-[#E8F5FF] via-[#F3FAFF] to-[#E8F5FF] rounded-lg shadow-sm p-8 mb-16 opacity-0 transition-opacity duration-1000" data-animate>
 <div class="flex items-center justify-between mb-6">
-<h2 class="text-2xl font-bold text-gray-800">新服即将推出</h2>
-<span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm">2025</span>
+<h2 class="text-2xl font-bold text-gray-800">正式服即将推出</h2>
+<span class="bg-[#E8F5FF] text-[#0EA5E9] px-4 py-1 rounded-full text-sm">2025</span>
 </div>
 <div class="space-y-4 mb-8">
 <div class="flex items-center space-x-3">
-<i class="ri-check-line text-primary"></i>
-<span class="text-gray-700">全新空岛生存玩法即将上线</span>
+<i class="ri-check-line text-[#0EA5E9]"></i>
+<span class="text-gray-700">全新空岛生存</span>
 </div>
 <div class="flex items-center space-x-3">
-<i class="ri-check-line text-primary"></i>
+<i class="ri-check-line text-[#0EA5E9]"></i>
 <span class="text-gray-700">更高的可玩性</span>
 </div>
 <div class="flex items-center space-x-3">
-<i class="ri-check-line text-primary"></i>
+<i class="ri-check-line text-[#0EA5E9]"></i>
 <span class="text-gray-700">养老、RPG、冒险</span>
 </div>
 <div class="flex items-center space-x-3">
-<i class="ri-check-line text-primary"></i>
+<i class="ri-check-line text-[#0EA5E9]"></i>
 <span class="text-gray-700">魔法装备</span>
 </div>
 <div class="flex items-center space-x-3">
-<i class="ri-check-line text-primary"></i>
+<i class="ri-check-line text-[#0EA5E9]"></i>
 <span class="text-gray-700">还有更多...</span>
 </div>
 </div>
-<button class="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-button btn-hover">
+<button class="w-full bg-[#7DD3FC] text-white py-3 rounded-button btn-hover">
 <i class="ri-qq-line mr-2"></i>加入 QQ 群获取最新消息
 </button>
 </section>
 </main>
 <footer class="text-center py-4 text-gray-600 text-sm">
-<p>© 2022-2025 源夕之境 | Power by <a href="#" class="text-primary">Github</a></p>
+<p>© 2022-2025 源夕之境 | made by <a href="#" class="text-primary">YMu_Jin</a></p>
 </footer>
 <script>
 const observerOptions = {
@@ -188,26 +216,40 @@ const menuBtn = document.getElementById('menuBtn');
 const menu = document.getElementById('menu');
 let isMenuOpen = false;
 menuBtn.addEventListener('click', () => {
-isMenuOpen = !isMenuOpen;
-if (isMenuOpen) {
-menu.classList.remove('hidden');
-menu.classList.add('menu-enter');
-setTimeout(() => {
-menu.classList.add('menu-enter-active');
-menu.classList.remove('menu-enter');
-}, 10);
-} else {
-menu.classList.add('menu-exit');
-menu.classList.remove('menu-enter-active');
-setTimeout(() => {
-menu.classList.add('menu-exit-active');
-menu.classList.remove('menu-exit');
-setTimeout(() => {
-menu.classList.add('hidden');
-menu.classList.remove('menu-exit-active');
-}, 300);
-}, 10);
-}
+  isMenuOpen = !isMenuOpen;
+  if (isMenuOpen) {
+    menu.classList.remove('hidden');
+    menu.classList.add('menu-enter');
+    setTimeout(() => {
+      menu.classList.add('menu-enter-active');
+      menu.classList.remove('menu-enter');
+    }, 10);
+  } else {
+    menu.classList.add('menu-exit');
+    menu.classList.remove('menu-enter-active');
+    setTimeout(() => {
+      menu.classList.add('menu-exit-active');
+      menu.classList.remove('menu-exit');
+      setTimeout(() => {
+        menu.classList.add('hidden');
+        menu.classList.remove('menu-exit-active');
+      }, 300);
+    }, 10);
+  }
+});
+document.querySelectorAll('.menu-item button').forEach(button => {
+  button.addEventListener('click', (e) => {
+    const submenu = e.currentTarget.nextElementSibling;
+    const arrow = e.currentTarget.querySelector('.ri-arrow-down-s-line');
+    
+    if (submenu.classList.contains('hidden')) {
+      submenu.classList.remove('hidden');
+      arrow.style.transform = 'rotate(180deg)';
+    } else {
+      submenu.classList.add('hidden');
+      arrow.style.transform = 'rotate(0deg)';
+    }
+  });
 });
 function scrollImages(direction) {
 const slider = document.getElementById('imageSlider');

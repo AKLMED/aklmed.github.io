@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>源夕之境 - 高性能我的世界服务器</title>
+<title>源夕之境 - 欢迎您</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -43,8 +43,8 @@ DEFAULT: '8px',
 .btn-hover:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
 </style>
 </head>
-<body class="bg-gradient-to-br from-white to-gray-50 min-h-screen">
-<header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50">
+<body class="bg-gradient-to-br from-gray-50 to-white min-h-screen text-gray-800">
+<header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 shadow-sm">
 <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
 <div class="flex items-center space-x-2">
 <img src="https://static.readdy.ai/image/5b5e86359afe53e09d36cb391df289d9/90adf21611143084f5f27221922b1bf4.jpeg" alt="Logo" class="w-10 h-10 rounded-lg">
@@ -56,10 +56,10 @@ DEFAULT: '8px',
 </nav>
 <div id="menu" class="hidden container mx-auto px-4 py-4 bg-white/90 shadow-lg rounded-lg mt-2 absolute left-0 right-0 transform">
 <div class="space-y-4">
-<a href="#" class="block px-4 py-2 rounded-button hover:bg-primary/10 transition-colors">首页</a>
-<a href="#" class="block px-4 py-2 rounded-button hover:bg-primary/10 transition-colors">服务器状态</a>
-<a href="#" class="block px-4 py-2 rounded-button hover:bg-primary/10 transition-colors">玩家社区</a>
-<a href="#" class="block px-4 py-2 rounded-button hover:bg-primary/10 transition-colors">帮助中心</a>
+<a href="#" class="block px-4 py-2 rounded-button hover:bg-gray-100 transition-colors text-gray-800">首页</a>
+<a href="#" class="block px-4 py-2 rounded-button hover:bg-gray-100 transition-colors text-gray-800">服务器状态</a>
+<a href="#" class="block px-4 py-2 rounded-button hover:bg-gray-100 transition-colors text-gray-800">玩家社区</a>
+<a href="#" class="block px-4 py-2 rounded-button hover:bg-gray-100 transition-colors text-gray-800">帮助中心</a>
 </div>
 </div>
 </header>
@@ -106,7 +106,7 @@ DEFAULT: '8px',
 <i class="ri-group-line text-primary text-2xl"></i>
 </div>
 <h3 class="text-xl font-semibold mb-2">友好社区</h3>
-<p class="text-gray-600">活跃的玩家群体，温馨和谐的游戏氛围，让每位玩家都能找到归属感。</p>
+<p class="text-gray-400">活跃的玩家群体，温馨和谐的游戏氛围，让每位玩家都能找到归属感。</p>
 </div>
 <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
 <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
@@ -123,7 +123,7 @@ DEFAULT: '8px',
 <p class="text-gray-600">独特的游戏模式，丰富的游戏内容，带来前所未有的游戏体验。</p>
 </div>
 </section>
-<section class="bg-gradient-to-br from-[#e8f7ff] via-[#f0faff] to-[#f8fdff] rounded-lg shadow-sm p-8 mb-16 opacity-0 transition-opacity duration-1000" data-animate>
+<section class="bg-gradient-to-br from-gray-50 via-white to-gray-50 rounded-lg shadow-sm p-8 mb-16 opacity-0 transition-opacity duration-1000" data-animate>
 <div class="flex items-center justify-between mb-6">
 <h2 class="text-2xl font-bold text-gray-800">新服即将推出</h2>
 <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm">2025</span>
@@ -155,22 +155,33 @@ DEFAULT: '8px',
 </button>
 </section>
 </main>
-<footer class="text-center py-4 text-gray-500 text-sm">
+<footer class="text-center py-4 text-gray-600 text-sm">
 <p>© 2022-2025 源夕之境 | Power by <a href="#" class="text-primary">Github</a></p>
 </footer>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const animatedElements = document.querySelectorAll('[data-animate]');
-  let delay = 200;
-  
-  animatedElements.forEach((element) => {
-    setTimeout(() => {
-      element.style.opacity = '1';
-    }, delay);
-    delay += 200;
-  });
+const observerOptions = {
+root: null,
+rootMargin: '0px',
+threshold: 0.1
+};
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.style.opacity = '1';
+entry.target.style.transform = 'translateY(0)';
+observer.unobserve(entry.target);
+}
 });
-
+}, observerOptions);
+document.addEventListener('DOMContentLoaded', () => {
+const animatedElements = document.querySelectorAll('[data-animate]');
+animatedElements.forEach((element) => {
+element.style.opacity = '0';
+element.style.transform = 'translateY(20px)';
+element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+observer.observe(element);
+});
+});
 const menuBtn = document.getElementById('menuBtn');
 const menu = document.getElementById('menu');
 let isMenuOpen = false;

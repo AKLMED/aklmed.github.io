@@ -3,218 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>源夕之境</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>源夕之境 - 首页</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#34d399',
+secondary: '#7dd3fc'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
-.btn-hover {
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.btn-hover:hover {
-transform: translateY(-2px);
-box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
-.btn-hover:active {
-transform: translateY(0);
-box-shadow: none;
-}
-.fade-up {
-opacity: 0;
-transform: translateY(20px);
-transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-}
-.fade-up.visible {
-opacity: 1;
-transform: translateY(0);
-}
+.menu-enter { opacity: 0; transform: translateY(-10px); }
+.menu-enter-active { opacity: 1; transform: translateY(0); transition: opacity 300ms, transform 300ms; }
+.menu-exit { opacity: 1; transform: translateY(0); }
+.menu-exit-active { opacity: 0; transform: translateY(-10px); transition: opacity 300ms, transform 300ms; }
+.btn-hover { transition: all 0.3s ease; }
+.btn-hover:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
 </style>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#0EA5E9',secondary:'#10B981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'12px'}}}}</script>
 </head>
-<body class="bg-[#F8FAFC] min-h-screen flex flex-col items-center">
-<div class="w-[375px] min-h-screen relative pb-20">
-<div class="pt-16 px-6 flex flex-col items-center">
-<div class="w-32 h-32 mb-12">
-<!-- img src="https://static.readdy.ai/image/434865fa4b532bf1127dd54e2b5979e2/90adf21611143084f5f27221922b1bf4.jpeg"
-class="w-full h-full object-contain object-cover rounded-lg shadow-sm" alt="Logo">
--->
+<body class="bg-gradient-to-br from-white to-gray-50 min-h-screen">
+<header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50">
+<nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+<div class="flex items-center space-x-2">
+<img src="https://static.readdy.ai/image/5b5e86359afe53e09d36cb391df289d9/90adf21611143084f5f27221922b1bf4.jpeg" alt="Logo" class="w-10 h-10 rounded-lg">
+<span class="text-2xl font-['Pacifico'] bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">源夕之境</span>
 </div>
-<h1 class="text-primary text-4xl font-bold mb-4 font-['Pacifico']">源夕之境</h1>
-<h2 class="text-gray-800 text-2xl font-semibold text-center mb-2">我的世界原创生存服务器</h2>
-<p class="text-gray-600 text-center mb-12">探索、建造、冒险，尽在源夕之境</p>
-<div class="w-full mb-12 fade-up">
-<div class="w-full overflow-x-auto mb-8">
-<div class="flex gap-4 p-4 min-w-max">
-<!--img src="https://public.readdy.ai/ai/img_res/a5e2021781911ecab55c190a96126054.jpg"-->
-<img src="IMG_1520.jpeg"
-class="w-60 h-40 object-cover rounded-lg shadow-sm" alt="Server Preview">
-<img src="https://public.readdy.ai/ai/img_res/cca68cd186de5c566f63e1e7eef88b7b.jpg"
-class="w-60 h-40 object-cover rounded-lg shadow-sm" alt="Server Preview">
-<img src="https://public.readdy.ai/ai/img_res/7b8cf6fa6e8aa22df0916fa6abba661f.jpg"
-class="w-60 h-40 object-cover rounded-lg shadow-sm" alt="Server Preview">
-<img src="https://public.readdy.ai/ai/img_res/f6b712d2072c99101d435a4fc6ef3394.jpg"class="w-60 h-40 object-cover rounded-lg shadow-sm" alt="Server Preview">
-<img src="https://public.readdy.ai/ai/img_res/793dc3da17bca392e5e905684e79bc6a.jpg"
-class="w-60 h-40 object-cover rounded-lg shadow-sm" alt="Server Preview">
-  
+<button id="menuBtn" class="p-2 rounded-button hover:bg-gray-100 transition-colors">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</nav>
+<div id="menu" class="hidden container mx-auto px-4 py-4 bg-white/90 shadow-lg rounded-lg mt-2 absolute left-0 right-0 transform">
+<div class="space-y-4">
+<a href="#" class="block px-4 py-2 rounded-button hover:bg-primary/10 transition-colors">首页</a>
+<a href="#" class="block px-4 py-2 rounded-button hover:bg-primary/10 transition-colors">服务器状态</a>
+<a href="#" class="block px-4 py-2 rounded-button hover:bg-primary/10 transition-colors">玩家社区</a>
+<a href="#" class="block px-4 py-2 rounded-button hover:bg-primary/10 transition-colors">帮助中心</a>
 </div>
 </div>
-<div class="grid grid-cols-2 gap-4 w-full">
-<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=fGL2r-V_ygyGSuPMmkz06Zb_kA3Q6YVy&authKey=peDeE7u%2BywqRsamNuOkWUylk4V5dFUhx%2BghwiWGVpeuIY2ASsl2FwkWCQZ5C9Iwm&noverify=0&group_code=682609884" 
-   target="_blank" 
-   rel="noopener noreferrer"
-   class="inline-block w-full hover:bg-primary-dark focus:ring-2 focus:ring-primary"> <!-- 添加 focus 和 active 样式 -->
-  <button class="bg-primary text-white py-3 !rounded-button btn-hover flex items-center justify-center shadow-sm w-full">
-    <i class="ri-qq-fill mr-2 text-lg"></i>
-    <span class="text-base">加入QQ群</span>
-  </button>
-</a>
-<a href="book.html" class="inline-block w-full"> <!-- 添加 inline-block 或 flex -->
-  <button class="bg-secondary text-white py-3 !rounded-button btn-hover flex items-center justify-center shadow-sm w-full">
-    <i class="ri-file-text-line mr-2 text-lg"></i>
-    <span class="text-base">游玩文档</span>
-  </button>
-</a>
-</div>
-</div>
-<div class="w-full bg-white shadow-md rounded-lg p-6 mb-6 fade-up">
-<div class="flex items-center gap-4 mb-4">
-<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-<i class="ri-sword-line text-primary text-xl"></i>
-</div>
-<h3 class="text-gray-800 text-lg font-semibold">原创玩法</h3>
-</div>
-<p class="text-gray-600">独特的游戏机制与丰富的探索内容</p>
-</div>
-<div class="w-full bg-white shadow-md rounded-lg p-6 mb-6 fade-up">
-<div class="flex items-center gap-4 mb-4">
-<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-<i class="ri-team-line text-primary text-xl"></i>
-</div>
-<h3 class="text-gray-800 text-lg font-semibold">友好社区</h3>
-</div>
-<p class="text-gray-600">活跃的玩家群体，温馨和谐的游戏氛围</p>
-</div>
-<div class="w-full bg-white shadow-md rounded-lg p-6 fade-up">
-<div class="flex items-center gap-4 mb-4">
-<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-<i class="ri-gamepad-line text-primary text-xl"></i>
-</div>
-<h3 class="text-gray-800 text-lg font-semibold">稳定运营</h3>
-</div>
-<p class="text-gray-600">24小时 不间断运行，专业的服务器维护</p>
-</div>
-<div class="w-full bg-gradient-to-br from-primary/10 to-secondary/10 shadow-md rounded-lg p-6 mt-6 fade-up">
-<div class="flex items-center justify-between mb-4">
-<div class="flex items-center gap-4">
-<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-<i class="ri-rocket-line text-primary text-xl"></i>
-</div>
-<h3 class="text-gray-800 text-lg font-semibold">新服即将推出</h3>
-</div>
-<span class="text-primary text-sm font-medium px-3 py-1 bg-primary/10 rounded-full">2025</span>
-</div>
-<div class="space-y-3">
-<div class="flex items-center gap-2">
-<i class="ri-checkbox-circle-line text-secondary"></i>
-<p class="text-gray-600">全新空岛生存玩法即将上线</p>
-</div>
-<div class="flex items-center gap-2">
-<i class="ri-checkbox-circle-line text-secondary"></i>
-<p class="text-gray-600">更高的可玩性</p>
-</div>
-<div class="flex items-center gap-2">
-<i class="ri-checkbox-circle-line text-secondary"></i>
-<p class="text-gray-600">养老、RPG、冒险</p>
-</div>
-<div class="flex items-center gap-2">
-<i class="ri-checkbox-circle-line text-secondary"></i>
-<p class="text-gray-600">魔法装备</p>
-</div>
-<div class="flex items-center gap-2">
-<i class="ri-checkbox-circle-line text-secondary"></i>
-<p class="text-gray-600">还有更多...</p>
-</div>
-</div>
-<button class="w-full mt-4 bg-primary/10 text-primary py-2 !rounded-button btn-hover flex items-center justify-center">
+</header>
+<main class="container mx-auto px-4 pt-24 pb-16">
+<section class="text-center mb-16">
+<img src="https://public.readdy.ai/ai/img_res/35c2eac03ba68fe3bcd83b0ec5919bd1.jpg" alt="Brand Logo" class="mx-auto w-40 h-40 mb-8">
+<h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">源夕之境</h1>
+<p class="text-gray-600 text-lg mb-8">一个追求平衡与和谐的 Minecraft 游戏世界</p>
+<div class="flex flex-wrap justify-center gap-4 mb-8">
+<a href="https://qm.qq.com/cgi-bin/qm/qr" class="btn-hover bg-primary text-white px-8 py-3 rounded-button whitespace-nowrap flex items-center">
 <i class="ri-qq-line mr-2"></i>
-<span>加入 QQ 群获取最新消息</span>
+加入QQ群
+</a>
+<a href="/about" class="btn-hover border-2 border-primary text-primary px-8 py-3 rounded-button whitespace-nowrap flex items-center">
+<i class="ri-information-line mr-2"></i>
+了解更多
+</a>
+<a href="/sponsor" class="btn-hover border-2 border-primary text-primary px-8 py-3 rounded-button whitespace-nowrap flex items-center">
+<i class="ri-heart-3-line mr-2"></i>
+赞助我们
+</a>
+</div>
+<div class="relative overflow-hidden mb-8">
+<div class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth" id="imageSlider">
+<img src="https://public.readdy.ai/ai/img_res/85a920191fd11d48110042f88ef6d3eb.jpg" alt="游戏场景1" class="w-72 h-48 object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow snap-start flex-shrink-0">
+<img src="https://public.readdy.ai/ai/img_res/59d5f161561eec08ff67cd2a8cac7298.jpg" alt="游戏场景2" class="w-72 h-48 object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow snap-start flex-shrink-0">
+<img src="https://public.readdy.ai/ai/img_res/7dfb065980c1f846df11e6fcf2286c53.jpg" alt="游戏场景3" class="w-72 h-48 object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow snap-start flex-shrink-0">
+<img src="https://public.readdy.ai/ai/img_res/5ec3c4272bf132c68e397b790b7d09fa.jpg" alt="游戏场景4" class="w-72 h-48 object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow snap-start flex-shrink-0">
+<img src="https://public.readdy.ai/ai/img_res/a90473247db2c4f475a9ca098fdf888e.jpg" alt="游戏场景5" class="w-72 h-48 object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow snap-start flex-shrink-0">
+<img src="https://public.readdy.ai/ai/img_res/e72780c867c22ac75d6601646efc4e52.jpg" alt="游戏场景6" class="w-72 h-48 object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow snap-start flex-shrink-0">
+<img src="https://public.readdy.ai/ai/img_res/de1b36ca4e95ec34f7b9fd17d9a3dbf0.jpg" alt="游戏场景7" class="w-72 h-48 object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow snap-start flex-shrink-0">
+<img src="https://public.readdy.ai/ai/img_res/26e13420677be977e676cae08fed44af.jpg" alt="游戏场景8" class="w-72 h-48 object-cover rounded-lg shadow-sm hover:shadow-md transition-shadow snap-start flex-shrink-0">
+</div>
+<button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white transition-colors" onclick="scrollImages('left')">
+<i class="ri-arrow-left-s-line text-xl"></i>
+</button>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white transition-colors" onclick="scrollImages('right')">
+<i class="ri-arrow-right-s-line text-xl"></i>
 </button>
 </div>
+</section>
+<section class="grid md:grid-cols-3 gap-8 mb-16">
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-group-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">友好社区</h3>
+<p class="text-gray-600">活跃的玩家群体，温馨和谐的游戏氛围，让每位玩家都能找到归属感。</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-shield-check-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">稳定运营</h3>
+<p class="text-gray-600">24小时不间断运行，专业的服务器维护团队，确保游戏体验流畅稳定。</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-rocket-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">创新玩法</h3>
+<p class="text-gray-600">独特的游戏模式，丰富的游戏内容，带来前所未有的游戏体验。</p>
+</div>
+</section>
+<section class="bg-gradient-to-br from-[#e8f7ff] via-[#f0faff] to-[#f8fdff] rounded-lg shadow-sm p-8 mb-16">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold text-gray-800">新服即将推出</h2>
+<span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm">2025</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex items-center space-x-3">
+<i class="ri-check-line text-primary"></i>
+<span class="text-gray-700">全新空岛生存玩法即将上线</span>
+</div>
+<div class="flex items-center space-x-3">
+<i class="ri-check-line text-primary"></i>
+<span class="text-gray-700">更高的可玩性</span>
+</div>
+<div class="flex items-center space-x-3">
+<i class="ri-check-line text-primary"></i>
+<span class="text-gray-700">养老、RPG、冒险</span>
+</div>
+<div class="flex items-center space-x-3">
+<i class="ri-check-line text-primary"></i>
+<span class="text-gray-700">魔法装备</span>
+</div>
+<div class="flex items-center space-x-3">
+<i class="ri-check-line text-primary"></i>
+<span class="text-gray-700">还有更多...</span>
 </div>
 </div>
-<div class="fixed bottom-0 w-[375px] py-4 text-center text-gray-500 text-sm bg-[#F8FAFC]">
-© 2022-2025 源夕之境 | <p>Power by <a href="https://github.com" style="color: #00bfff; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#00bfff'">Github</a></p>
-</div>
+<button class="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-button btn-hover">
+<i class="ri-qq-line mr-2"></i>加入 QQ 群获取最新消息
+</button>
+</section>
+</main>
+<footer class="text-center py-4 text-gray-500 text-sm">
+<p>© 2022-2025 源夕之境 | Power by <a href="#" class="text-primary">Github</a></p>
+</footer>
 <script>
-document.querySelectorAll('button').forEach(button => {
-button.addEventListener('click', function() {
-const ripple = document.createElement('div');
-ripple.classList.add('ripple');
-this.appendChild(ripple);
-setTimeout(() => ripple.remove(), 1000);
-});
-});
-const fadeElements = document.querySelectorAll('.fade-up');
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
+const menuBtn = document.getElementById('menuBtn');
+const menu = document.getElementById('menu');
+let isMenuOpen = false;
+menuBtn.addEventListener('click', () => {
+isMenuOpen = !isMenuOpen;
+if (isMenuOpen) {
+menu.classList.remove('hidden');
+menu.classList.add('menu-enter');
+setTimeout(() => {
+menu.classList.add('menu-enter-active');
+menu.classList.remove('menu-enter');
+}, 10);
+} else {
+menu.classList.add('menu-exit');
+menu.classList.remove('menu-enter-active');
+setTimeout(() => {
+menu.classList.add('menu-exit-active');
+menu.classList.remove('menu-exit');
+setTimeout(() => {
+menu.classList.add('hidden');
+menu.classList.remove('menu-exit-active');
+}, 300);
+}, 10);
 }
 });
-}, {
-threshold: 0.1
-});
-fadeElements.forEach(element => {
-observer.observe(element);
-});
-// 图片滚动相关
-const imageScroll = document.getElementById('imageScroll');
-const imageContainer = imageScroll.querySelector('div');
-const images = imageContainer.querySelectorAll('img');
-const dotsContainer = document.querySelector('.flex.gap-1\\.5');
-// 创建进度点
-images.forEach((_, index) => {
-const dot = document.createElement('div');
-dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${index === 0 ? 'bg-primary' : 'bg-gray-300'}`;
-dotsContainer.appendChild(dot);
-});
-const dots = dotsContainer.querySelectorAll('div');
-let currentIndex = 0;
-const imageWidth = 256; // 图片宽度 + gap
-function updateDots(index) {
-dots.forEach((dot, i) => {
-dot.className = `w-2 h-2 rounded-full transition-all duration-300 ${i === index ? 'bg-primary' : 'bg-gray-300'}`;
-});
+function scrollImages(direction) {
+  const slider = document.getElementById('imageSlider');
+  const scrollAmount = 300; // 每次移动一张图片的宽度
+  const currentScroll = slider.scrollLeft;
+  const maxScroll = slider.scrollWidth - slider.clientWidth;
+  if (direction === 'left') {
+    if (currentScroll > 0) {
+      slider.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  } else {
+    if (currentScroll < maxScroll) {
+      slider.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  }
+  // 更新按钮状态
+  setTimeout(() => {
+    const leftBtn = slider.previousElementSibling;
+    const rightBtn = slider.nextElementSibling;
+    
+    leftBtn.style.opacity = slider.scrollLeft <= 0 ? '0.5' : '1';
+    leftBtn.style.cursor = slider.scrollLeft <= 0 ? 'not-allowed' : 'pointer';
+    
+    rightBtn.style.opacity = slider.scrollLeft >= maxScroll ? '0.5' : '1';
+    rightBtn.style.cursor = slider.scrollLeft >= maxScroll ? 'not-allowed' : 'pointer';
+  }, 300);
 }
-function scrollToNext() {
-currentIndex = (currentIndex + 1) % images.length;
-imageScroll.scrollTo({
-left: currentIndex * imageWidth,
-behavior: 'smooth'
-});
-updateDots(currentIndex);
-}
-// 自动滚动
-let scrollInterval = setInterval(scrollToNext, 3000);
-// 手动滚动时重置定时器
-imageScroll.addEventListener('scroll', () => {
-clearInterval(scrollInterval);
-const scrollPosition = imageScroll.scrollLeft;
-currentIndex = Math.round(scrollPosition / imageWidth);
-updateDots(currentIndex);
-scrollInterval = setInterval(scrollToNext, 3000);
-});
-// 触摸时暂停自动滚动
-imageScroll.addEventListener('touchstart', () => {
-clearInterval(scrollInterval);
-});
-// 触摸结束后恢复自动滚动
-imageScroll.addEventListener('touchend', () => {
-scrollInterval = setInterval(scrollToNext, 3000);
-});
 </script>
 </body>
 </html>

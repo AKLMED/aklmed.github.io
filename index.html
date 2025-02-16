@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>源夕之境 - 首页</title>
+<title>源夕之境 - 高性能我的世界服务器</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -64,14 +64,13 @@ DEFAULT: '8px',
 </div>
 </header>
 <main class="container mx-auto px-4 pt-24 pb-16">
-<section class="text-center mb-16">
-<!-- img src="https://public.readdy.ai/ai/img_res/35c2eac03ba68fe3bcd83b0ec5919bd1.jpg" alt="Brand Logo" class="mx-auto w-40 h-40 mb-8" -->
+<section class="text-center mb-16 opacity-0 transition-opacity duration-1000" data-animate>
 <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">源夕之境</h1>
 <p class="text-gray-600 text-lg mb-8">一个追求平衡与和谐的 Minecraft 游戏世界</p>
 <div class="flex flex-wrap justify-center gap-4 mb-8">
 <a href="https://qm.qq.com/cgi-bin/qm/qr" class="btn-hover bg-primary text-white px-8 py-3 rounded-button whitespace-nowrap flex items-center">
 <i class="ri-qq-line mr-2"></i>
-加入QQ群
+立即加入
 </a>
 <a href="/about" class="btn-hover border-2 border-primary text-primary px-8 py-3 rounded-button whitespace-nowrap flex items-center">
 <i class="ri-information-line mr-2"></i>
@@ -101,7 +100,7 @@ DEFAULT: '8px',
 </button>
 </div>
 </section>
-<section class="grid md:grid-cols-3 gap-8 mb-16">
+<section class="grid md:grid-cols-3 gap-8 mb-16 opacity-0 transition-opacity duration-1000" data-animate>
 <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
 <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
 <i class="ri-group-line text-primary text-2xl"></i>
@@ -124,7 +123,7 @@ DEFAULT: '8px',
 <p class="text-gray-600">独特的游戏模式，丰富的游戏内容，带来前所未有的游戏体验。</p>
 </div>
 </section>
-<section class="bg-gradient-to-br from-[#e8f7ff] via-[#f0faff] to-[#f8fdff] rounded-lg shadow-sm p-8 mb-16">
+<section class="bg-gradient-to-br from-[#e8f7ff] via-[#f0faff] to-[#f8fdff] rounded-lg shadow-sm p-8 mb-16 opacity-0 transition-opacity duration-1000" data-animate>
 <div class="flex items-center justify-between mb-6">
 <h2 class="text-2xl font-bold text-gray-800">新服即将推出</h2>
 <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm">2025</span>
@@ -160,6 +159,18 @@ DEFAULT: '8px',
 <p>© 2022-2025 源夕之境 | Power by <a href="#" class="text-primary">Github</a></p>
 </footer>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const animatedElements = document.querySelectorAll('[data-animate]');
+  let delay = 200;
+  
+  animatedElements.forEach((element) => {
+    setTimeout(() => {
+      element.style.opacity = '1';
+    }, delay);
+    delay += 200;
+  });
+});
+
 const menuBtn = document.getElementById('menuBtn');
 const menu = document.getElementById('menu');
 let isMenuOpen = false;
@@ -186,36 +197,34 @@ menu.classList.remove('menu-exit-active');
 }
 });
 function scrollImages(direction) {
-  const slider = document.getElementById('imageSlider');
-  const scrollAmount = 300; // 每次移动一张图片的宽度
-  const currentScroll = slider.scrollLeft;
-  const maxScroll = slider.scrollWidth - slider.clientWidth;
-  if (direction === 'left') {
-    if (currentScroll > 0) {
-      slider.scrollBy({
-        left: -scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-  } else {
-    if (currentScroll < maxScroll) {
-      slider.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-  }
-  // 更新按钮状态
-  setTimeout(() => {
-    const leftBtn = slider.previousElementSibling;
-    const rightBtn = slider.nextElementSibling;
-    
-    leftBtn.style.opacity = slider.scrollLeft <= 0 ? '0.5' : '1';
-    leftBtn.style.cursor = slider.scrollLeft <= 0 ? 'not-allowed' : 'pointer';
-    
-    rightBtn.style.opacity = slider.scrollLeft >= maxScroll ? '0.5' : '1';
-    rightBtn.style.cursor = slider.scrollLeft >= maxScroll ? 'not-allowed' : 'pointer';
-  }, 300);
+const slider = document.getElementById('imageSlider');
+const scrollAmount = 300; // 每次移动一张图片的宽度
+const currentScroll = slider.scrollLeft;
+const maxScroll = slider.scrollWidth - slider.clientWidth;
+if (direction === 'left') {
+if (currentScroll > 0) {
+slider.scrollBy({
+left: -scrollAmount,
+behavior: 'smooth'
+});
+}
+} else {
+if (currentScroll < maxScroll) {
+slider.scrollBy({
+left: scrollAmount,
+behavior: 'smooth'
+});
+}
+}
+// 更新按钮状态
+setTimeout(() => {
+const leftBtn = slider.previousElementSibling;
+const rightBtn = slider.nextElementSibling;
+leftBtn.style.opacity = slider.scrollLeft <= 0 ? '0.5' : '1';
+leftBtn.style.cursor = slider.scrollLeft <= 0 ? 'not-allowed' : 'pointer';
+rightBtn.style.opacity = slider.scrollLeft >= maxScroll ? '0.5' : '1';
+rightBtn.style.cursor = slider.scrollLeft >= maxScroll ? 'not-allowed' : 'pointer';
+}, 300);
 }
 </script>
 </body>

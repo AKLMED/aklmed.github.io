@@ -3,35 +3,27 @@ import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import TagsListInline from '@theme/TagsListInline';
-import Link from '@docusaurus/Link'; 
+import EditMetaRow from '@theme/EditMetaRow'; // 👈 引入默认的 EditMetaRow 组件
 
 export default function DocItemFooter() {
   const {metadata} = useDoc();
   const {editUrl, lastUpdatedAt, lastUpdatedBy, tags} = metadata;
 
+  // 判断是否显示标签
   const canDisplayTagsRow = tags.length > 0;
+  // 判断是否有编辑信息或时间
+  const canDisplayEditMetaRow = !!(editUrl || lastUpdatedAt || lastUpdatedBy);
   
-  // 👇 修复：判断是否存在时间
-  const hasUpdateTime = !!(lastUpdatedAt || lastUpdatedBy);
-
-  // 如果没有标签，就直接跳过
-  if (!canDisplayTagsRow && !hasUpdateTime) {
-    // 哪怕没有时间，如果想强制显示反馈按钮，就把这行注释掉，下面单独判断
+  // 如果完全没东西，直接返回空
+  if (!canDisplayTagsRow && !canDisplayEditMetaRow) {
+    return null;
   }
-
-  const formatDate = (timestamp) => {
-    if (!timestamp) return '';
-    const date = new Date(timestamp);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}年${month}月${day}日`;
-  };
 
   return (
     <footer
       className={clsx(ThemeClassNames.docs.docFooter, 'docusaurus-mt-lg')}>
       
+      {/* 标签行 (保持不变) */}
       {canDisplayTagsRow && (
         <div
           className={clsx(
@@ -44,32 +36,21 @@ export default function DocItemFooter() {
         </div>
       )}
 
-      {/* 👇 只要配置了 editUrl，这个区块就会一直出现，不受时间影响 */}
-      <div className={clsx('row margin-top--sm', ThemeClassNames.docs.docFooterEditMetaRow)}>
-        <div className="col">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
-            
-            {/* ✅ 反馈问题按钮（独立显示） */}
-            <div>
-              <Link
-                className="button button--secondary button--sm"
-                href="https://qm.qq.com/q/aeK6Z8yoLu" 
-                target="_blank"
-              >
-                帮助我们完善文档
-              </Link>
-            </div>
-
-            {/* ✅ 最后更新时间（只有真正获取到时间才显示） */}
-            {hasUpdateTime && (
-              <div style={{ fontSize: '0.9em', color: 'var(--ifm-color-emphasis-600)' }}>
-                <span>最后更新于 {formatDate(lastUpdatedAt)}</span>
-              </div>
-            )}
-
-          </div>
-        </div>
-      </div>
+      {/* 编辑与最后更新时间行 (修改文字) */}
+      {canDisplayEditMetaRow && (
+        <EditMetaRow
+          className={clsx(
+            'margin-top--sm',
+            ThemeClassNames.docs.docFooterEditMetaRow,
+          )}
+          editUrl={editUrl} // 👈 链接保持不变
+          lastUpdatedAt={lastUpdatedAt} // 👈 时间保持不变
+          lastUpdatedBy={lastUpdatedBy} // 👈 作者保持不变
+          
+          // 👇 重点在这里：Docusaurus 默认的 EditMetaRow 组件支持传入自定义文字！
+          editLabel="帮助我们完善文档" 
+        />
+      )}
       
     </footer>
   );

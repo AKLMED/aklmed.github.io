@@ -1,0 +1,167 @@
+/* src/pages/index.module.css */
+
+/* --- 1. 定义主题颜色变量 --- */
+/* 默认 (浅色模式) */
+.heroContainer {
+  --hero-bg: #f8f9fa;        /* 浅色背景 (接近截图浅色版) */
+  --hero-grid: #e9ecef;      /* 浅色网格线 */
+  --hero-text-main: #1a1a1a; /* 主标题颜色 */
+  --hero-text-sub: #4a5568;  /* 副标题颜色 */
+  --hero-domain: #6c757d;    /* 顶部域名颜色 */
+  --hero-stat-label: #6c757d;/* 底部数据标签颜色 */
+  --hero-border: #e2e8f0;    /* 底部数据分割线颜色 */
+  
+  /* 按钮颜色 (浅色版按钮：青色底+深色字) */
+  --btn-primary-bg: #3de0f0;
+  --btn-primary-text: #0b1e33;
+  --btn-primary-hover: #5beefc;
+  --btn-secondary-border: #ced4da;
+  --btn-secondary-text: #4a5568;
+  --btn-secondary-hover-bg: #f1f3f5;
+}
+
+/* --- 2. 深色模式覆盖变量 (Docusaurus 会自动给 html 加上 data-theme='dark') --- */
+html[data-theme='dark'] .heroContainer {
+  --hero-bg: #0b1e33;        /* 深色背景 */
+  --hero-grid: rgba(255, 255, 255, 0.05); /* 深色网格线 */
+  --hero-text-main: #ffffff; /* 主标题颜色 */
+  --hero-text-sub: #e0e8f0;  /* 副标题颜色 */
+  --hero-domain: #8ba4b8;    /* 顶部域名颜色 */
+  --hero-stat-label: #8ba4b8;/* 底部数据标签颜色 */
+  --hero-border: rgba(255, 255, 255, 0.1); /* 底部数据分割线颜色 */
+  
+  /* 按钮颜色 (深色版按钮：青色底+黑字) */
+  --btn-primary-bg: #3de0f0;
+  --btn-primary-text: #0b1e33;
+  --btn-primary-hover: #5beefc;
+  --btn-secondary-border: rgba(255, 255, 255, 0.3);
+  --btn-secondary-text: #ffffff;
+  --btn-secondary-hover-bg: rgba(255, 255, 255, 0.1);
+}
+
+
+/* --- 3. 应用变量到实际元素 --- */
+.heroContainer {
+  background-color: var(--hero-bg);
+  background-image: 
+    linear-gradient(var(--hero-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--hero-text-main);
+  padding: 5rem 0;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease; /* 添加过渡动效 */
+}
+
+.domainText {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hero-domain);
+  margin-bottom: 1.5rem;
+}
+
+.mainTitle {
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--hero-text-main);
+}
+
+.subText {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--hero-text-sub);
+  max-width: 650px;
+  margin-bottom: 3rem;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+/* 主按钮 */
+.btnPrimary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-weight: 700;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+}
+.btnPrimary:hover {
+  background-color: var(--btn-primary-hover);
+  color: var(--btn-primary-text);
+  text-decoration: none;
+}
+
+/* 次级按钮 */
+.btnSecondary {
+  background-color: transparent;
+  color: var(--btn-secondary-text);
+  border: 1px solid var(--btn-secondary-border);
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btnSecondary:hover {
+  border-color: var(--btn-secondary-text);
+  color: var(--btn-secondary-text);
+  background-color: var(--btn-secondary-hover-bg);
+  text-decoration: none;
+}
+
+/* 底部数据 */
+.statsContainer {
+  border-top: 1px solid var(--hero-border);
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNum {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2rem;
+  color: var(--hero-text-main);
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--hero-stat-label);
+  font-weight: 600;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+  .mainTitle {
+    font-size: 2.8rem;
+  }
+  .buttonGroup {
+    flex-direction: column;
+  }
+  .btnPrimary, .btnSecondary {
+    width: 100%;
+    text-align: center;
+  }
+}

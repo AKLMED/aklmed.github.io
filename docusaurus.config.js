@@ -50,9 +50,11 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/AKLMED/aklmed.github.io/tree/gh-pages',
+          showLastUpdateTime: true, 
+          showLastUpdateAuthor: true,
         },
-        blog: {
+        blog: false,/*{
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
@@ -66,7 +68,7 @@ const config = {
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
-        },
+        }, */
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -103,16 +105,22 @@ const config = {
         }, */
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            type: 'doc',
+            docId: 'intro',      // 这里写你的 Markdown 文件开头的 id
             position: 'right',
-            label: '开始游玩',
+            label: '快速开始',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            type: 'doc',
+            docId: '/category/玩法百科', // 换成你玩法教程文章的真实 ID
             position: 'right',
-            label: '百科',
+            label: '玩法百科',
+          },
+          {
+            type: 'doc',
+            docId: '/category/疑难解答', // 换成你玩法教程文章的真实 ID
+            position: 'right',
+            label: '常见问题',
           },
           {
             type: 'search',
@@ -152,11 +160,11 @@ const config = {
             items: [
               {
                 label: 'Minecraft官网',
-                to: '/blog',
+                to: 'https://www.minecraft.net',
               },
               {
                 label: 'Minecraft教程',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://zh.minecraft.wiki',
               },
             ],
           },

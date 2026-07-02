@@ -50,7 +50,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/AKLMED/aklmed.github.io/tree/gh-pages',
+            'https://github.com/AKLMED/aklmed.github.io/tree/main',
           showLastUpdateTime: true, 
           showLastUpdateAuthor: true,
         },

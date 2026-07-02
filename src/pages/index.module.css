@@ -2,49 +2,63 @@
 
 /* --- 1. 定义主页专有变量 (依赖全局主题色) --- */
 :root {
-  --hero-bg: #f8f9fa;              /* 浅色背景 (接近截图浅色版) */
-  --hero-grid: rgba(0, 0, 0, 0.04); /* 浅色网格线(更柔和) */
-  --hero-text-main: #1a1a1a;       /* 主标题颜色 */
-  --hero-text-sub: #4a5568;        /* 副标题颜色 */
-  --hero-domain: #6c757d;          /* 顶部域名颜色 */
-  --hero-stat-label: #6c757d;      /* 底部数据标签颜色 */
-  --hero-border: #e2e8f0;          /* 底部数据分割线颜色 */
+  --hero-bg: #f8f9fa;
+  --hero-grid: rgba(0, 0, 0, 0.04);
+  --hero-text-main: #1a1a1a;
+  --hero-text-sub: #4a5568;
+  --hero-domain: #6c757d;
+  --hero-stat-label: #6c757d;
+  --hero-border: #e2e8f0;
   
-  /* 按钮颜色默认使用全局的 --ifm-color-primary 相关色 */
   --btn-primary-bg: var(--ifm-color-primary);
   --btn-primary-text: #ffffff;
   --btn-primary-hover: var(--ifm-color-primary-dark);
   --btn-secondary-border: #ced4da;
   --btn-secondary-text: #4a5568;
   --btn-secondary-hover-bg: #f1f3f5;
+
+  /* 【新增】浅色模式的渐变背景 - 非常淡 */
+  --hero-gradient: radial-gradient(
+    ellipse at 0% 100%,  /* 左下角起点 */
+    rgba(144, 238, 174, 0.466) 0%,   /* 绿色，极淡 */
+    rgba(144, 238, 144, 0.02) 30%,  /* 绿色逐渐消失 */
+    transparent 50%,                 /* 中间完全透明 */
+    rgba(127, 169, 246, 0.02) 70%,  /* 蓝色开始出现 */
+    rgba(114, 182, 245, 0.2) 110%  /* 右上角蓝色，极淡 */
+  );
 }
 
 /* --- 2. 深色模式覆盖变量 --- */
 html[data-theme='dark'] {
-  --hero-bg: #0b1e33;              /* 深色背景 */
-  --hero-grid: rgba(255, 255, 255, 0.05); /* 深色网格线 */
-  --hero-text-main: #ffffff;       /* 主标题颜色 */
-  --hero-text-sub: #e0e8f0;        /* 副标题颜色 */
-  --hero-domain: #8ba4b8;          /* 顶部域名颜色 */
-  --hero-stat-label: #8ba4b8;      /* 底部数据标签颜色 */
-  --hero-border: rgba(255, 255, 255, 0.1); /* 底部数据分割线颜色 */
+  --hero-bg: #0b1e33;
+  --hero-grid: rgba(255, 255, 255, 0.05);
+  --hero-text-main: #ffffff;
+  --hero-text-sub: #e0e8f0;
+  --hero-domain: #8ba4b8;
+  --hero-stat-label: #8ba4b8;
+  --hero-border: rgba(255, 255, 255, 0.1);
   
-  /* 深色模式下的按钮颜色 */
   --btn-primary-bg: var(--ifm-color-primary);
-  --btn-primary-text: #ffffff;     /* 深色模式主按钮白字 */
+  --btn-primary-text: #ffffff;
   --btn-primary-hover: var(--ifm-color-primary-dark);
   --btn-secondary-border: rgba(255, 255, 255, 0.3);
   --btn-secondary-text: #ffffff;
   --btn-secondary-hover-bg: rgba(255, 255, 255, 0.1);
+
+  /* 【新增】深色模式下移除渐变，保持纯色背景 */
+  --hero-gradient: none;
 }
 
 /* --- 3. 应用变量到实际元素 --- */
 .heroContainer {
   background-color: var(--hero-bg);
+  /* 【修改】添加渐变背景，放在网格线之前（下层） */
   background-image: 
+    var(--hero-gradient),                     /* 渐变背景（最下层） */
     linear-gradient(var(--hero-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-size: 100% 100%, 40px 40px, 40px 40px; /* 渐变铺满，网格重复 */
+  background-blend-mode: normal, normal, normal;
   color: var(--hero-text-main);
   padding: 5rem 0;
   width: 100%;
@@ -53,6 +67,7 @@ html[data-theme='dark'] {
   align-items: center;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 /* 正文小字：服务器IP */
 .domainText {
   font-family: 'Courier New', monospace;
@@ -60,7 +75,7 @@ html[data-theme='dark'] {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--hero-domain);
-  margin-bottom: 1.5rem;
+  margin-bottom: -7.1rem;
 }
 
 .mainTitle {
@@ -76,7 +91,7 @@ html[data-theme='dark'] {
   line-height: 1.6;
   color: var(--hero-text-sub);
   max-width: 650px;
-  margin-bottom: 3rem;
+  margin-bottom: -7rem;
 }
 
 .buttonGroup {
@@ -122,7 +137,7 @@ html[data-theme='dark'] {
 
 /* 底部数据 */
 .statsContainer {
-  border-top: 1px solid var(--hero-border);
+  border-top: 2px solid var(--hero-border);
   padding-top: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -135,7 +150,8 @@ html[data-theme='dark'] {
 }
 
 .statNum {
-  font-size: 1.8rem;
+  /*font-family: 'Courier New', monospace; */
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   margin-bottom: 0.2rem;
@@ -158,6 +174,138 @@ html[data-theme='dark'] {
   .buttonGroup {
     flex-direction: column;
   }
+  .btnPrimary, .btnSecondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* --- 在文件末尾添加新的样式 --- */
+
+/* Logo 和标题的容器 - 使用 flex 布局 */
+.heroHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 左侧标题文字区域 */
+.heroTitleGroup {
+  flex: 1;
+}
+
+/* Logo 图片样式 */
+/* 如果你确实想要大 Logo，但不要影响布局 */
+.heroLogo {
+  flex-shrink: 0;
+  width: 500px;
+  height: 300px;
+  object-fit: contain;
+  margin-left: -0.5rem;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+
+.heroContainer {
+  background-color: var(--hero-bg);
+  /* 【修改】添加渐变背景，放在网格线之前（下层） */
+  background-image: 
+    var(--hero-gradient),                     /* 渐变背景（最下层） */
+    linear-gradient(var(--hero-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px; /* 渐变铺满，网格重复 */
+  background-blend-mode: normal, normal, normal;
+  color: var(--hero-text-main);
+  padding: 5rem 0;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* 正文小字：服务器IP */
+.domainText {
+  font-family: 'Courier New', monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hero-domain);
+  margin-bottom: 1rem;
+}
+
+.mainTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--hero-text-main);
+}
+
+.subText {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--hero-text-sub);
+  max-width: 650px;
+  margin-bottom: 1rem;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+  /* 1. 标题和 Logo 改为纵向排列，且居中 */
+  .heroHeader {
+    flex-direction: column;
+    text-align: center;  /* 让文字居中 */
+    gap: 1rem;
+  }
+  
+  /* 2. Logo 在标题上方 */
+  .heroLogo {
+    width: 140px;
+    height: 140px;
+    margin-left: 0;
+    order: -1;  /* Logo 显示在标题上方 */
+  }
+  
+  /* 3. 标题组也居中 */
+  .heroTitleGroup {
+    text-align: center;
+  }
+  
+  .heroTitleGroup .mainTitle {
+    text-align: center;
+  }
+  
+  .heroTitleGroup .subText {
+    text-align: center;
+  }
+  
+  /* 4. 域名 */
+  .heroDomainWrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+/* ip文字大小
+  .heroDomainWrapper .domainText {
+    text-align: center;
+    font-size: 1.2rem; 
+  } */
+
+  /* 5. 按钮组居中 */
+  .buttonGroup {
+    flex-direction: column;
+    align-items: center;  /* 按钮居中 */
+  }
+  
   .btnPrimary, .btnSecondary {
     width: 100%;
     text-align: center;

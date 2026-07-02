@@ -49,7 +49,7 @@ if errorlevel 1 (
 )
 echo.
 echo [步骤 5/5] 部署到 gh-pages 分支...
-npx gh-pages -d build -m "部署: %commit_msg%"
+npx gh-pages -d build -m "%commit_msg%"
 echo.
 echo ========================================
 echo ✅ 全部完成！网站已更新。

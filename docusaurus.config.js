@@ -149,10 +149,6 @@ const config = {
                 label: '常见问题',
                 to: '/docs/category/常见问题',
               },
-              {
-                label: '历史',
-                to: '/docs/category/服务器历史',
-              },
             ]
           },
           {

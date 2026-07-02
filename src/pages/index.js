@@ -16,7 +16,7 @@ function ServerStats() {
   });
 
   // 你的服务器信息
-  const SERVER_IP = 'mc233.cn'; 
+  const SERVER_IP = 'hypixel.net'; 
   const SERVER_PORT = 25565;        
 
   // 3. 编写数据获取与自动更新逻辑 (每隔 15 秒刷新一次)
@@ -58,7 +58,7 @@ function ServerStats() {
     <div className={styles.statsContainer}>
       {/* 【修改点2】这里直接显示硬编码的服务器IP */}
       <div className={styles.statItem}>
-        <span className={styles.statNum}>mc233.cn</span>
+        <span className={styles.statNum}>mc.geyino.top</span>
         <span className={styles.statLabel}>服务器地址</span>
       </div>
 
@@ -82,7 +82,7 @@ function HomepageHeader() {
   return (
     <header className={styles.heroContainer}>
       <div className="container">
-        <div className={styles.domainText}>服务器IP：MC.GEYINO.TOP</div>
+        <div className={styles.domainText}>MC.GEYINO.TOP</div>
         <Heading as="h1" className={styles.mainTitle}>
           苍岚屿
         </Heading>
@@ -91,11 +91,11 @@ function HomepageHeader() {
         </p>
 
         <div className={styles.buttonGroup}>
-          <Link className={styles.btnPrimary} to="/docs/intro">
+          <Link className={styles.btnPrimary} to="/docs/start">
             立即开始吧 &rarr;
           </Link>
-          <Link className={styles.btnSecondary} to="/docs/category/疑难解答">
-            疑难解答
+          <Link className={styles.btnSecondary} to="/docs/category/常见问题">
+            常见问题
           </Link>
           <Link className={styles.btnSecondary} to="/docs/category/玩法百科">
             玩法教程

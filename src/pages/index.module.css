@@ -1,44 +1,42 @@
 /* src/pages/index.module.css */
 
-/* --- 1. 定义主题颜色变量 --- */
-/* 默认 (浅色模式) */
-.heroContainer {
-  --hero-bg: #f8f9fa;        /* 浅色背景 (接近截图浅色版) */
-  --hero-grid: #e9ecef;      /* 浅色网格线 */
-  --hero-text-main: #1a1a1a; /* 主标题颜色 */
-  --hero-text-sub: #4a5568;  /* 副标题颜色 */
-  --hero-domain: #6c757d;    /* 顶部域名颜色 */
-  --hero-stat-label: #6c757d;/* 底部数据标签颜色 */
-  --hero-border: #e2e8f0;    /* 底部数据分割线颜色 */
+/* --- 1. 定义主页专有变量 (依赖全局主题色) --- */
+:root {
+  --hero-bg: #f8f9fa;              /* 浅色背景 (接近截图浅色版) */
+  --hero-grid: rgba(0, 0, 0, 0.04); /* 浅色网格线(更柔和) */
+  --hero-text-main: #1a1a1a;       /* 主标题颜色 */
+  --hero-text-sub: #4a5568;        /* 副标题颜色 */
+  --hero-domain: #6c757d;          /* 顶部域名颜色 */
+  --hero-stat-label: #6c757d;      /* 底部数据标签颜色 */
+  --hero-border: #e2e8f0;          /* 底部数据分割线颜色 */
   
-  /* 按钮颜色 (浅色版按钮：青色底+深色字) */
-  --btn-primary-bg: #3de0f0;
-  --btn-primary-text: #0b1e33;
-  --btn-primary-hover: #5beefc;
+  /* 按钮颜色默认使用全局的 --ifm-color-primary 相关色 */
+  --btn-primary-bg: var(--ifm-color-primary);
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: var(--ifm-color-primary-dark);
   --btn-secondary-border: #ced4da;
   --btn-secondary-text: #4a5568;
   --btn-secondary-hover-bg: #f1f3f5;
 }
 
-/* --- 2. 深色模式覆盖变量 (Docusaurus 会自动给 html 加上 data-theme='dark') --- */
-html[data-theme='dark'] .heroContainer {
-  --hero-bg: #0b1e33;        /* 深色背景 */
+/* --- 2. 深色模式覆盖变量 --- */
+html[data-theme='dark'] {
+  --hero-bg: #0b1e33;              /* 深色背景 */
   --hero-grid: rgba(255, 255, 255, 0.05); /* 深色网格线 */
-  --hero-text-main: #ffffff; /* 主标题颜色 */
-  --hero-text-sub: #e0e8f0;  /* 副标题颜色 */
-  --hero-domain: #8ba4b8;    /* 顶部域名颜色 */
-  --hero-stat-label: #8ba4b8;/* 底部数据标签颜色 */
+  --hero-text-main: #ffffff;       /* 主标题颜色 */
+  --hero-text-sub: #e0e8f0;        /* 副标题颜色 */
+  --hero-domain: #8ba4b8;          /* 顶部域名颜色 */
+  --hero-stat-label: #8ba4b8;      /* 底部数据标签颜色 */
   --hero-border: rgba(255, 255, 255, 0.1); /* 底部数据分割线颜色 */
   
-  /* 按钮颜色 (深色版按钮：青色底+黑字) */
-  --btn-primary-bg: #3de0f0;
-  --btn-primary-text: #0b1e33;
-  --btn-primary-hover: #5beefc;
+  /* 深色模式下的按钮颜色 */
+  --btn-primary-bg: var(--ifm-color-primary);
+  --btn-primary-text: #ffffff;     /* 深色模式主按钮白字 */
+  --btn-primary-hover: var(--ifm-color-primary-dark);
   --btn-secondary-border: rgba(255, 255, 255, 0.3);
   --btn-secondary-text: #ffffff;
   --btn-secondary-hover-bg: rgba(255, 255, 255, 0.1);
 }
-
 
 /* --- 3. 应用变量到实际元素 --- */
 .heroContainer {
@@ -53,12 +51,12 @@ html[data-theme='dark'] .heroContainer {
   min-height: 80vh;
   display: flex;
   align-items: center;
-  transition: background-color 0.3s ease, color 0.3s ease; /* 添加过渡动效 */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+/* 正文小字：服务器IP */
 .domainText {
   font-family: 'Courier New', monospace;
-  font-size: 0.85rem;
+  font-size: 1.5rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--hero-domain);

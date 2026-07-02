@@ -50,7 +50,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/AKLMED/aklmed.github.io/tree/main',
+            'https://github.com/AKLMED/aklmed.github.io/tree/gh-pages',
           showLastUpdateTime: true, 
           showLastUpdateAuthor: true,
         },
@@ -106,19 +106,19 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',      // 这里写你的 Markdown 文件开头的 id
+            docId: 'start',
             position: 'right',
             label: '快速开始',
           },
           {
             type: 'doc',
-            docId: '/category/玩法百科', // 换成你玩法教程文章的真实 ID
+            docId: '/category/玩法百科',
             position: 'right',
             label: '玩法百科',
           },
           {
             type: 'doc',
-            docId: '/category/疑难解答', // 换成你玩法教程文章的真实 ID
+            docId: '/category/常见问题', 
             position: 'right',
             label: '常见问题',
           },
@@ -141,10 +141,18 @@ const config = {
             title: '文档',
             items: [
               {
-                label: '教程文档',
-                to: '/docs/intro',
+                label: '玩法百科',
+                to: '/docs/start',
               },
-            ],
+              {
+                label: '常见问题',
+                to: '/docs/category/常见问题',
+              },
+              {
+                label: '历史',
+                to: '/docs/category/服务器历史',
+              },
+            ]
           },
           {
             title: '社区',
@@ -169,7 +177,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} 源夕之境`,
+        copyright: `Copyright © 2022-${new Date().getFullYear()} Geyino Studio`,
       },
       prism: {
         theme: prismThemes.github,

@@ -5,6 +5,8 @@
  */
 
 /* You can override the default Infima variables here. */
+
+/* --- 浅色模式全局变量 --- */
 :root {
   --ifm-color-primary: #188991;
   --ifm-color-primary-dark: #167b83;
@@ -16,27 +18,25 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* --- 深色模式全局变量 --- */
+/* 使用稍微亮一点的蓝绿色，配合深色背景网格 */
 [data-theme='dark'] {
-  --ifm-color-primary: #408491;
-  --ifm-color-primary-dark: #3a7783;
-  --ifm-color-primary-darker: #36707b;
-  --ifm-color-primary-darkest: #2d5c66;
-  --ifm-color-primary-light: #4691a0;
-  --ifm-color-primary-lighter: #4a98a7;
-  --ifm-color-primary-lightest: #5aa7b6;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary: #39adb5;
+  --ifm-color-primary-dark: #339ba3;
+  --ifm-color-primary-darker: #2f929a;
+  --ifm-color-primary-darkest: #27787e;
+  --ifm-color-primary-light: #3fbcc4;
+  --ifm-color-primary-lighter: #47c2c9;
+  --ifm-color-primary-lightest: #5cced5;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
 }
 
+/* 导航栏 Logo 调整 */
 .navbar__logo img {
-  height: 60px; /* 默认大约 20~25px，可以调大 */
+  height: 40px; /* 建议 40px，太大可能和右边的文字不对齐 */
 }
 
-/* 导航栏左右内边距减小 
-.navbar {
-  padding-left: 13rem !important;
-  padding-right: 10rem !important;
+/* 如果你想给页面添加淡入淡出动画 */
+.navbar, .main-wrapper {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-  
-*/
-

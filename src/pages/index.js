@@ -16,7 +16,7 @@ function ServerStats() {
   });
 
   // 你的服务器信息
-  const SERVER_IP = 'mc.geyino.top'; 
+  const SERVER_IP = '110.42.10.228'; 
   const SERVER_PORT = 25565;        
 
   // 3. 编写数据获取与自动更新逻辑 (每隔 15 秒刷新一次)
@@ -24,7 +24,7 @@ function ServerStats() {
     const fetchServerStatus = async () => {
       try {
         // 调用免费 API (使用 /2 节点通常支持跨域)
-        const response = await fetch(`https://api.mcsrvstat.us/2/${SERVER_IP}:${SERVER_PORT}`);
+        const response = await fetch(`https://api.mcsrvstat.us/3/${SERVER_IP}`);  //:${SERVER_PORT}
         const data = await response.json();
 
         if (data.online) {

@@ -56,6 +56,7 @@ const config = {
           showLastUpdateAuthor: true,
 
         },
+        
         blog: false,/*{
           showReadingTime: true,
           feedOptions: {
@@ -99,10 +100,15 @@ const config = {
       colorMode: {
         respectPrefersColorScheme: true,
       },
-      sidebar: {
-        autoCollapseCategories: true,
-        hideable: true,
+      lastUpdate: {
+        format: 'YYYY-MM-DD HH:mm:ss',
       },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
+
       navbar: {
         title: '源夕之境 - 苍岚屿',
     /*    logo: {
@@ -138,6 +144,7 @@ const config = {
             position: 'right',
             className: 'navbar-qq-link',
           },
+          
         ],
       },
       footer: {

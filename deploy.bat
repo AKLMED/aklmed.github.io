@@ -50,6 +50,19 @@ if errorlevel 1 (
 echo.
 echo [步骤 5/5] 部署到 gh-pages 分支...
 npx gh-pages -d build -m "%commit_msg%"
+if errorlevel 1 (
+    echo.
+    echo ❌ 部署失败！
+    echo 可能的原因：
+    echo   1. gh-pages 分支存在冲突 - 尝试手动删除远程 gh-pages 分支
+    echo   2. 网络连接问题 - 检查网络
+    echo   3. 权限问题 - 检查 git 凭证
+    echo   4. build 目录问题 - 检查 build 目录是否存在
+    echo.
+    echo 建议手动执行: npx gh-pages -d build -m "%commit_msg%"
+    pause
+    goto end
+)
 echo.
 echo ========================================
 echo ✅ 全部完成！网站已更新。

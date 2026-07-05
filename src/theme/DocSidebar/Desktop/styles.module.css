@@ -1,0 +1,86 @@
+@media (min-width: 997px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: var(--ifm-navbar-height);
+    width: var(--doc-sidebar-width);
+  }
+
+  .sidebarWithHideableNavbar {
+    padding-top: 0;
+  }
+
+  .sidebarHidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .sidebarLogo {
+    display: flex !important;
+    align-items: center;
+    margin: 0 var(--ifm-navbar-padding-horizontal);
+    min-height: var(--ifm-navbar-height);
+    max-height: var(--ifm-navbar-height);
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  .sidebarLogo img {
+    margin-right: 0.5rem;
+    height: 2rem;
+  }
+}
+
+.sidebarLogo {
+  display: none;
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  padding: 1rem;
+}
+
+.sidebarButton {
+  display: block;
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border-radius: .75rem;
+
+  text-align: center;
+  text-decoration: none;
+
+  font-weight: 500;
+
+  color: var(--ifm-link-color);
+
+
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+}
+
+.sidebarButton:hover {
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+  
+}
+
+.footerTitle {
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.footerDesc {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  text-align: center;
+}

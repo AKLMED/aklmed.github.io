@@ -28,7 +28,8 @@ import EnchantTag from '@site/src/components/EnchantTag';
 | 荆棘 | III | 所有盔甲 | 反弹伤害给攻击者 | <EnchantTag type="盔甲" /> |
 | 绑定诅咒 | I | 所有盔甲 | 装备后无法移除 | <EnchantTag type="盔甲" /> |
 | 消失诅咒 | I | 所有盔甲 | 死亡后物品消失 | <EnchantTag type="盔甲" /> |
-
+| 灵识 | III | 头盔 | 拾取经验球时获得更多的经验值 | <EnchantTag type="盔甲" /> <EnchantTag type="拓展" />|
+| 流云 | III | 头盔 | 降低饥饿值消耗 | <EnchantTag type="盔甲" /> <EnchantTag type="拓展" />|
 ---
 
 ### ⚔️ 武器附魔（剑 / 斧）
@@ -41,7 +42,10 @@ import EnchantTag from '@site/src/components/EnchantTag';
 | 击退 | II | 剑 | 击退敌人 | <EnchantTag type="武器" /> |
 | 火焰附加 | II | 剑 | 点燃目标 | <EnchantTag type="武器" /> |
 | 抢夺 | III | 剑 | 增加生物掉落物数量 | <EnchantTag type="武器" /> |
-| 追魂 | | | | <EnchantTag type="武器" /> <EnchantTag type="拓展" />|
+| 追魂 | V | 剑、斧 | 击杀目标后恢复少量生命值 | <EnchantTag type="武器" /> <EnchantTag type="拓展" />|
+| 磨损 | II | 剑、斧 | 攻击目标时有几率使目标的护甲降低更多的耐久 | <EnchantTag type="武器" /> <EnchantTag type="拓展" />|
+| 归元 | I | 剑、斧 | 攻击时概率修补此物品的耐久度 | <EnchantTag type="武器" /> <EnchantTag type="拓展" />|
+| 处决斩首 | I | 剑 | 击杀目标后概率掉落目标生物的头颅 | <EnchantTag type="武器" /> <EnchantTag type="拓展" />|
 
 ---
 
@@ -69,6 +73,7 @@ import EnchantTag from '@site/src/components/EnchantTag';
 | 忠诚 | III | 三叉戟 | 投掷后自动返回 | <EnchantTag type="远程" /> |
 | 穿刺 | V | 三叉戟 | 对水生生物额外伤害 | <EnchantTag type="远程" /> |
 | 激流 | III | 三叉戟 | 在水中/雨中投掷时带动玩家冲刺 | <EnchantTag type="远程" /> |
+| 霜冻 | III | 弓、弩 | 概率使目标冰冻并减速 | <EnchantTag type="远程" /> <EnchantTag type="拓展" />|
 
 ---
 

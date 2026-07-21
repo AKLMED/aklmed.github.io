@@ -1,12 +1,12 @@
 @echo off
 chcp 65001 >nul
 echo ========================================
-echo         Docusaurus 自动部署脚本
+echo         自动部署脚本
 echo ========================================
 echo.
-echo 当前目录: %cd%
+echo 目录: %cd%
 echo.
-echo 请选择操作:
+echo 请选择:
 echo   [1] 普通提交并部署 (git add . + commit + push + build + gh-pages)
 echo   [2] 只提交源码 (git add . + commit + push，不部署)
 echo   [3] 只构建并部署 (npm run build + gh-pages，不提交源码)
@@ -24,15 +24,15 @@ goto end
 
 :full_deploy
 echo.
-echo [步骤 1/5] 添加所有修改...
+echo [1/5] 添加所有修改...
 git add .
 echo.
-echo [步骤 2/5] 请输入本次提交的描述信息:
+echo [2/5] 请输入本次提交的描述信息:
 set /p commit_msg="> "
 if "%commit_msg%"=="" set commit_msg="更新文档"
 git commit -m "%commit_msg%"
 echo.
-echo [步骤 3/5] 推送到远程仓库 main 分支...
+echo [3/5] 推送到远程仓库 main 分支...
 git push -u origin main
 if errorlevel 1 (
     echo.
@@ -40,15 +40,15 @@ if errorlevel 1 (
     git push -u origin main --force
 )
 echo.
-echo [步骤 4/5] 构建静态网站...
+echo [4/5] 构建静态网站...
 npm run build
 if errorlevel 1 (
-    echo 构建失败，请检查代码错误。
+    echo 构建失败
     pause
     goto end
 )
 echo.
-echo [步骤 5/5] 部署到 gh-pages 分支...
+echo [5/5] 部署到 gh-pages 分支...
 npx gh-pages -d build -m "%commit_msg%"
 if errorlevel 1 (
     echo.

@@ -1,8 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# 提交反馈
-:::tip
-此页面正在完善中
-:::
+# Q:我该如何提交反馈？
+A:你可以在这里提交反馈：https://v.wjx.cn/vm/wJCPncm.aspx

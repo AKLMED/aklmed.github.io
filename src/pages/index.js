@@ -11,7 +11,7 @@ function ServerStats() {
   // 定义状态
   const [stats, setStats] = useState({
     online: false,    // 是否在线
-    players: '离线',       // 在线人数
+    players: '加载中...',       // 在线人数
     version: '加载中...', // 版本号
   });
 
@@ -39,7 +39,7 @@ function ServerStats() {
             ...prev,
             online: false,
             players: 0,
-            version: '离线',
+            version: '加载中...',
           }));
         }
       } catch (error) {

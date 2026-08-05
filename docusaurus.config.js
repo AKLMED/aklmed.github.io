@@ -130,7 +130,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: '/category/常见问题', 
+            docId: '/category/常见疑问解答', 
             position: 'right',
             label: '常见问题',
           },
@@ -139,8 +139,8 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://qm.qq.com/q/OrZULZbRKO',
-            label: 'QQ',
+            href: 'https://qm.qq.com/q/aV2iasu7Cw',
+            label: 'QQ群',
             position: 'right',
             className: 'navbar-qq-link',
           },
@@ -155,11 +155,11 @@ const config = {
             items: [
               {
                 label: '玩法百科',
-                to: '/docs/start',
+                to: '/docs/category/玩法百科',
               },
               {
                 label: '常见问题',
-                to: '/docs/category/常见问题',
+                to: '/docs/category/常见疑问解答',
               },
             ]
           },
@@ -186,7 +186,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © 2022-${new Date().getFullYear()} Geyino Studio`,
+        copyright: `"Minecraft"以及"我的世界"为美国微软公司的商标 本站与微软公司没有从属关系<br />Copyright © 2022-${new Date().getFullYear()} Geyino Studio 版权所有`,
       },
       prism: {
         theme: prismThemes.github,

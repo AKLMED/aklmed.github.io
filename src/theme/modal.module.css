@@ -1,0 +1,108 @@
+/*弹窗*/
+/* 遮罩层 */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease;
+  
+}
+
+/* 弹窗主体 */
+.modalContent {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  text-align: center;
+  animation: slideUp 0.4s ease;
+  
+}
+
+/* 关闭按钮 */
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.closing {
+  opacity: 0;
+  pointer-events: none; /* 防止关闭动画期间还能点击 */
+  transition: opacity 0.3s ease; /* 平滑过渡透明度 */
+}
+
+/* 【新增】让弹窗主体在关闭时缩小并淡出 */
+.closing .modalContent {
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.3s ease; /* 平滑过渡大小和透明度 */
+}
+
+.closeBtn:hover {
+  color: #333;
+}
+
+/* 标题和内容 */
+.modalTitle {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #1d4d4f; /* 你的主题色 */
+}
+
+.modalText {
+  font-size: 16px;
+  line-height: 0.5;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* 强调按钮 */
+.modalBtn {
+  display: inline-block;
+  padding: 10px 100px;
+  background-color: var(--btn-primary-bg); /* 你的主题色 */
+  color: var(--btn-primary-text);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.modalBtn:hover {
+  background-color: var(--btn-primary-hover);
+  color: var(--btn-primary-text);
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+
+
+
+/*弹窗结束*/

@@ -155,7 +155,7 @@ function HomepageHeader() {
             <Link className={styles.btnPrimary} to="/docs/start">
               立即开始吧 &rarr;
             </Link>
-            <Link className={styles.btnSecondary} to="/docs/category/常见问题">
+            <Link className={styles.btnSecondary} to="/docs/category/常见疑问解答">
               常见问题
             </Link>
             <Link className={styles.btnSecondary} to="/docs/category/玩法百科">
